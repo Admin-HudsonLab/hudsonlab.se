@@ -1,33 +1,23 @@
-import Head from "next/head";
-import { useEffect, useState } from "react";
-import getEntry from "../lib/api";
+import { getLayoutData } from "../lib/api";
+import Layout from "../components/layout"
 
-export default function Home({ layoutEntry }) {
-  
-  const [title, setTitle] = useState("");
-
-  useEffect(() => {
-    setTitle(layoutEntry.fields.title);
-  }, []);
+export default function Home({ title, categories }) {
 
   return (
-    <div className="prose text-center max-w-none mt-20">
-      <Head>
-        <title>Hudson Lab</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout title={title} categories={categories} >
 
-      <h1>Hudson Lab...</h1>
-      <h2>{title}</h2>
-      <p>...is in construction.</p>
-    </div>
+
+    </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const layoutEntry = await getEntry();
+
+  const layoutData = await getLayoutData();
+
 
   return {
-    props: { layoutEntry },
+    props: { title: layoutData.title, categories: layoutData.categories },
   };
 }
+
