@@ -1,12 +1,12 @@
 import Container from "../components/container";
 import Layout from "../components/layout";
 import Section from "../components/section";
-import { getCategoriesSlugs, getEntriesBy, getLayoutData } from "../lib/api";
+import { getCategoriesSlugs, getEntriesBy, getLayoutData, getEntriesBySysId } from "../lib/api";
 
 export default function Category({ title, categoryTitle, categories, introduction, sectionsFields }) {
 
   const sectionsAsElement = sectionsFields.map((field) => {
-    return <Section title={field.title} snug={field.slug} />;
+    return <Section title={field.title} slug={field.slug} content={field.content} key={field.slug} />;
   });
 
   return (
@@ -33,9 +33,13 @@ export async function getStaticProps({ params }) {
   const sectionsFields = categoryFields.sections.map(section => { return section.fields });
 
   // THIS NOT DONE
-  console.log(sectionsFields);
-  const extractedSectionsContentsField = extractSectionsContentsBy(sectionsFields)
-  // UNTIL HERE
+/*   console.log(categoryFields); */
+
+  const sectionsFieldsWithContent = await getEntriesBySysId(categoryFields.sections);
+  const fieldsOnly = sectionsFieldsWithContent.map(item => { return item.fields }); 
+    /*   console.log(items[0].fields.content[0].fields.content); */
+
+
 
   return {
     props: {
@@ -43,7 +47,7 @@ export async function getStaticProps({ params }) {
       categoryTitle: categoryFields.title,
       categories: layoutData.categories,
       introduction: categoryFields.introduction ?? null,
-      sectionsFields: sectionsFields ?? null,
+      sectionsFields: fieldsOnly ?? null,
     },
   };
 

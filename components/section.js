@@ -1,9 +1,17 @@
-export default function Section({ title, content, slug }) {
+import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm'
+
+export default function Section({ title, slug, content }) {
+
+
+  
+
+  const onlyTheFirstContent = content[0].fields.content; 
 
   return (
-    <section key={slug}>
+    <section id={slug}>
       <h3>{title}</h3>
-      <p>{content}</p>
+      <ReactMarkdown plugins={[gfm]} children={onlyTheFirstContent} className="prose"/>
     </section>
   );
 }
