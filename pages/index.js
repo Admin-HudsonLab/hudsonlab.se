@@ -1,23 +1,19 @@
 import { getLayoutData } from "../lib/api";
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Container from "../components/container";
 
-export default function Home({ title, categories }) {
-
+export default function Home({ homeTitle, categories }) {
   return (
-    <Layout title={title} categories={categories} >
-
-
+    <Layout homeTitle={homeTitle} categories={categories}>
+      <Container></Container>
     </Layout>
   );
 }
 
 export async function getStaticProps() {
-
   const layoutData = await getLayoutData();
 
-
   return {
-    props: { title: layoutData.title, categories: layoutData.categories },
+    props: { homeTitle: layoutData.homeTitle, categories: layoutData.categories },
   };
 }
-

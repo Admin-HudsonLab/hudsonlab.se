@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
 
-export default function Layout({ children, title, categories }) {
+export default function Layout({ children, homeTitle, categories }) {
 
   const categoriesAsElements = categories.map((category) => {
     return <li key={category.slug}><Link href={`/${category.slug}`}><a>{category.title}</a></Link></li>;
@@ -10,7 +10,7 @@ export default function Layout({ children, title, categories }) {
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{homeTitle}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
@@ -21,7 +21,7 @@ export default function Layout({ children, title, categories }) {
             <li>
             <Link href="/">
               <a>
-                <h1 className="text-6xl font-semibold">{title}</h1>
+                <h1 className="text-6xl font-semibold">{homeTitle}</h1>
               </a>
             </Link>
             </li>
