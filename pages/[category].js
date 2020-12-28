@@ -3,15 +3,13 @@ import gfm from "remark-gfm";
 import Container from "../components/container";
 import Layout from "../components/layout";
 import Section from "../components/section";
+import ToReactMarkdown from "../components/toReactMarkdown";
 import { getCategoriesSlugs, getCategoryEntriesBy, getLayoutData, getEntriesBySysId } from "../lib/api";
 
-export default function Category({ homeTitle, categories, categoryTitle, introduction, sectionsFields, contentType }) {
+export default function Category({ homeTitle, categories, categoryTitle, introduction, sections }) {
 
-  const sectionsAsElement = sectionsFields.map((field) => {
-    if (contentType !== "section") {
-      return <Section title={field.title} slug={field.slug} field={field} key={field.slug} contentType={contentType} />;
-    }
-      return <Section title={field.title} slug={field.slug} content={field.content} key={field.slug} />;
+  const sectionsAsElements = sections.map((section) => {
+      return <Section section={section} key={section.fields.slug} />;
   });
 
   return (
@@ -19,8 +17,8 @@ export default function Category({ homeTitle, categories, categoryTitle, introdu
       <Layout homeTitle={homeTitle} categories={categories}>
         <Container>
           <h2>{categoryTitle}</h2>
-          {introduction ? <ReactMarkdown plugins={[gfm]} children={introduction} className="prose" /> : null}
-          {sectionsAsElement}
+          {introduction ? <ToReactMarkdown children={introduction}/> : null}
+          {sectionsAsElements}
         </Container>
       </Layout>
     </>
@@ -36,12 +34,7 @@ export async function getStaticProps({ params }) {
   const categoryItem = await getCategoryEntriesBy(slugFromParams);
   const categoryFields = categoryItem.fields;
 
-  const sectionsFieldsWithContent = await getEntriesBySysId(categoryFields.sections);
-  const contentType = sectionsFieldsWithContent[0].sys.contentType.sys.id;
-
-  const fieldsOnly = sectionsFieldsWithContent.map((item) => {
-    return item.fields;
-  });
+  const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
   return {
     props: {
@@ -49,8 +42,7 @@ export async function getStaticProps({ params }) {
       categories: layoutData.categories,
       categoryTitle: categoryFields.title,
       introduction: categoryFields.introduction ?? null,
-      sectionsFields: fieldsOnly ?? null,
-      contentType,
+      sections: sectionsFields ?? null,
     },
   };
 }
