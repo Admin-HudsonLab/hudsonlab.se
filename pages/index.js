@@ -5,7 +5,7 @@ import Container from "../components/container";
 export default function Home({ homeTitle, categories }) {
   return (
     <Layout homeTitle={homeTitle} categories={categories}>
-      <Container></Container>
+      <Container>Dev working?</Container>
     </Layout>
   );
 }
