@@ -4,7 +4,7 @@ import Container from "../components/container";
 import Layout from "../components/layout";
 import Section from "../components/section";
 import ToReactMarkdown from "../components/toReactMarkdown";
-import { getCategoriesSlugs, getCategoryEntriesBy, getLayoutData, getEntriesBySysId } from "../lib/api";
+import { getCategoriesSlugs, getCategoryEntriesBy, getLayoutData, getEntriesBySysId } from "../lib/api-contentful";
 
 export default function Category({ homeTitle, categories, categoryTitle, introduction, sections }) {
 
