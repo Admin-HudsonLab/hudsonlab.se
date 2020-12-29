@@ -1,15 +1,17 @@
-import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
+import CommitsChart from "../components/commits-chart";
 import Container from "../components/container";
 import Layout from "../components/layout";
 import Section from "../components/section";
 import ToReactMarkdown from "../components/toReactMarkdown";
 import { getCategoriesSlugs, getCategoryEntriesBy, getLayoutData, getEntriesBySysId } from "../lib/api-contentful";
+import { getCommitsActivityData } from "../lib/api-github";
 
-export default function Category({ homeTitle, categories, categoryTitle, introduction, sections }) {
+export default function Category({ homeTitle, categories, categoryTitle, introduction, sections, commitsActivity }) {
+
+  console.log(commitsActivity);
 
   const sectionsAsElements = sections.map((section) => {
-      return <Section section={section} key={section.fields.slug} />;
+    return <Section section={section} key={section.fields.slug} />;
   });
 
   return (
@@ -17,7 +19,8 @@ export default function Category({ homeTitle, categories, categoryTitle, introdu
       <Layout homeTitle={homeTitle} categories={categories}>
         <Container>
           <h2>{categoryTitle}</h2>
-          {introduction ? <ToReactMarkdown children={introduction}/> : null}
+          {introduction ? <ToReactMarkdown children={introduction} /> : null}
+          {categoryTitle === "Softwares" ? <CommitsChart commitsActivity={commitsActivity} /> : null}
           {sectionsAsElements}
         </Container>
       </Layout>
@@ -36,6 +39,9 @@ export async function getStaticProps({ params }) {
 
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
+  // only for '/softwares', the GitHub Commits Activity 
+  const commitsActivity = params.category === "softwares" ? await getCommitsActivityData() : null;
+
   return {
     props: {
       homeTitle: layoutData.homeTitle,
@@ -43,6 +49,7 @@ export async function getStaticProps({ params }) {
       categoryTitle: categoryFields.title,
       introduction: categoryFields.introduction ?? null,
       sections: sectionsFields ?? null,
+      commitsActivity: commitsActivity,
     },
   };
 }
