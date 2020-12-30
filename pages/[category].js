@@ -8,8 +8,6 @@ import { getCommitsActivityData } from "../lib/api-github";
 
 export default function Category({ homeTitle, categories, categoryTitle, introduction, sections, commitsActivity }) {
 
-  console.log(commitsActivity);
-
   const sectionsAsElements = sections.map((section) => {
     return <Section section={section} key={section.fields.slug} />;
   });

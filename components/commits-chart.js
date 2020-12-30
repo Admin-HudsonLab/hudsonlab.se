@@ -1,8 +1,11 @@
 import { useEffect } from "react";
-import { Chart } from "chart.js";
+import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale, TimeScale, Filler, Title, Legend, Tooltip } from "chart.js";
+import "chartjs-adapter-date-fns";
+Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, TimeScale, Filler, Title, Legend, Tooltip);
 
 export default function CommitsChart({ commitsActivity }) {
   useEffect(() => {
+    console.log(typeof commitsActivity.allWeekAsTimeStamp[0]);
     const ctx = document.getElementById("myChart").getContext("2d");
     const chart = new Chart(ctx, {
       // The type of chart we want to create
@@ -14,8 +17,11 @@ export default function CommitsChart({ commitsActivity }) {
         datasets: [
           {
             label: "RedMAGPIE",
-            backgroundColor: "#EC4899",
-            borderColor: "#EC4899",
+            fill: 'origin',
+            backgroundColor: "#B91C1C",
+            borderColor: "#B91C1C",
+            pointBackgroundColor: "#F87171",
+            tension: 0.4,
             data: commitsActivity.allTotal,
           },
         ],
@@ -23,23 +29,27 @@ export default function CommitsChart({ commitsActivity }) {
 
       // Configuration options go here
       options: {
-        aspectRatio: 2.5,
-        title: {
-          display: true,
-          fontSize: 16,
-          text: "Commits Activity on GitHub",
+        plugins: {
+          title: {
+            display: true,
+            text: "Commits Activity on GitHub",
+          },
         },
+        aspectRatio: 2.5,
         scales: {
-          xAxes: [
-            {
-              type: "time",
-              time: {
-                displayFormats: {
-                  month: "MMMM",
-                }
-              },
+          x: {
+            type: "time",
+            ticks: {
+              padding: 2,
             },
-          ],
+            time: {
+              displayFormats: {
+                month: "MMMM yyyy",
+              },
+              minUnit: "month",
+            },
+            display: true,
+          },
         },
       },
     });
