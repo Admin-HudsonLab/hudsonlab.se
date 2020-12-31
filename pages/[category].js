@@ -38,7 +38,8 @@ export async function getStaticProps({ params }) {
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
   // only for '/softwares', the GitHub Commits Activity 
-  const commitsActivity = params.category === "softwares" ? await getCommitsActivityData() : null;
+  const commitsActivityRedmagpie = params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
+  const commitsActivityGenomeScaleModels = params.category === "softwares" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
 
   return {
     props: {
@@ -47,7 +48,7 @@ export async function getStaticProps({ params }) {
       categoryTitle: categoryFields.title,
       introduction: categoryFields.introduction ?? null,
       sections: sectionsFields ?? null,
-      commitsActivity: commitsActivity,
+      commitsActivity: { commitsActivityRedmagpie, commitsActivityGenomeScaleModels },
     },
   };
 }

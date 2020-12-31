@@ -5,29 +5,30 @@ Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryS
 
 export default function CommitsChart({ commitsActivity }) {
   useEffect(() => {
-    console.log(typeof commitsActivity.allWeekAsTimeStamp[0]);
+    Chart.defaults.elements.line.tension = 0.5;
+    Chart.defaults.elements.line.showLine = false;
+    Chart.defaults.elements.line.fill = "origin";
+
     const ctx = document.getElementById("myChart").getContext("2d");
     const chart = new Chart(ctx, {
-      // The type of chart we want to create
       type: "line",
-
-      // The data for our dataset
       data: {
-        labels: commitsActivity.allWeekAsTimeStamp,
+        labels: commitsActivity.commitsActivityRedmagpie.allWeekAsTimeStamp,
         datasets: [
           {
             label: "RedMAGPIE",
-            fill: 'origin',
-            backgroundColor: "#B91C1C",
-            borderColor: "#B91C1C",
+            backgroundColor: "#B91C1C",                      
             pointBackgroundColor: "#F87171",
-            tension: 0.4,
-            data: commitsActivity.allTotal,
+            data: commitsActivity.commitsActivityRedmagpie.allTotal,
           },
+          {
+            label: "genome-scale-models",
+            backgroundColor: "#1E3A8A",           
+            pointBackgroundColor: "#F59E0B",
+            data: commitsActivity.commitsActivityGenomeScaleModels.allTotal,
+          }
         ],
       },
-
-      // Configuration options go here
       options: {
         plugins: {
           title: {
@@ -35,7 +36,7 @@ export default function CommitsChart({ commitsActivity }) {
             text: "Commits Activity on GitHub",
           },
         },
-        aspectRatio: 2.5,
+        aspectRatio: 4,
         scales: {
           x: {
             type: "time",

@@ -1,8 +1,8 @@
+import Content from "./content";
 import Post from "./post";
 import Profile from "./profile";
 import Publication from "./publication";
 import Software from "./software";
-import ToReactMarkdown from "./toReactMarkdown";
 
 const specialSectionContentTypes = ["publication", "software"];
 
@@ -16,7 +16,7 @@ export default function Section({ section }) {
       case "profile":
         return <Profile profile={contentEntry} key={contentEntry.sys.id} />;
       default:
-        return <ToReactMarkdown children={contentEntry.fields.content} key={contentEntry.sys.id} />;
+        return <Content content={contentEntry} key={contentEntry.sys.id} />;
     }
   });
 
