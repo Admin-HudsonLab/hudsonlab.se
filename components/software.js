@@ -18,7 +18,7 @@ export default function Software({ software }) {
       </li>
     );
   }
-  console.log(software.logo);
+  /* console.log(software.logo); */
   let softwareLogoElement;
   if (software.logo) {
     softwareLogoElement = (

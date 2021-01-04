@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import Section from "../components/section";
 import ToReactMarkdown from "../components/toReactMarkdown";
 import { getCategoriesSlugs, getCategoryEntriesBy, getLayoutData, getEntriesBySysId } from "../lib/api-contentful";
-import { getCommitsActivityData } from "../lib/api-github";
+import { getCommitsActivityData, getMockCommitsActivityData } from "../lib/api-github";
 
 export default function Category({ homeTitle, categories, categoryTitle, introduction, sections, commitsActivity }) {
 
@@ -38,8 +38,8 @@ export async function getStaticProps({ params }) {
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
   // only for '/softwares', the GitHub Commits Activity 
-  const commitsActivityRedmagpie = params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
-  const commitsActivityGenomeScaleModels = params.category === "softwares" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
+  const commitsActivityRedmagpie = params.category === "softwares" ? await getMockCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
+  const commitsActivityGenomeScaleModels = params.category === "softwares" ? await getMockCommitsActivityData("m-jahn", "genome-scale-models") : null;
 
   return {
     props: {
