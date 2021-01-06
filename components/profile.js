@@ -3,7 +3,7 @@ import Image from "next/image";
 import ToReactMarkdown from "./toReactMarkdown";
 
 export default function Profile({ profile }) {
-  console.log(profile.fields.portrait.fields.file.fileName, profile.fields.portrait.fields.file.details.image.width);
+  /* console.log(profile.fields.portrait.fields.file.fileName, profile.fields.portrait.fields.file.details.image.width); */
   return (
     <div key={profile.sys.id} className="flex">
       <div className="w-1/3 flex justify-center items-center">
