@@ -1,8 +1,9 @@
-import { useState } from "react";
+import Link from "next/link";
 import Content from "./content";
 import Post from "./post";
 import Profile from "./profile";
 import Publication from "./publication";
+import SectionContainer from "./sectionContainer";
 import Software from "./software";
 
 const specialSectionContentTypes = ["publication", "software"];
@@ -26,11 +27,7 @@ export default function Section({ section }) {
   let postsSection;
 
   if (sectionContentAsElementType?.includes(Post)) {
-    /* console.log("START", sectionContentAsElements); */
-    let reversingPostsSection = sectionContentAsElements;
-    postsSection = reversingPostsSection.reverse();
-    console.log("END postssection", postsSection);
-    console.log("END sectionContentAsElements", sectionContentAsElements);
+    postsSection = sectionContentAsElements.reverse();
   }
 
   if (specialSectionContentTypes.includes(section.sys.contentType.sys.id)) {
@@ -42,11 +39,26 @@ export default function Section({ section }) {
     }
   }
 
+  if (postsSection?.length > 5) {
+    
+    const recentPosts = postsSection.map((post, index) => {
+      if (index < 5) {
+        return post;
+      }
+    });
+
+    return (
+      <SectionContainer slug={section.fields.slug} title={section.fields.title}>
+        {recentPosts}
+        <br></br>
+        <Link href={`/news-archive/${section.fields.slug}`}><a className="uppercase text-lg">See older posts from {section.fields.title} News</a></Link>
+      </SectionContainer>
+    );
+  }
+
   return (
-    <section key={section.fields.slug}>
-      <h3>{section.fields.title}</h3>
+    <SectionContainer slug={section.fields.slug} title={section.fields.title}>
       {sectionContentAsElements ? sectionContentAsElements : null}
-      {postsSection ? postsSection : null}
-    </section>
+    </SectionContainer>
   );
 }
