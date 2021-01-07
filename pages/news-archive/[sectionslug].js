@@ -1,25 +1,41 @@
-import { useEffect, useState } from "react";
-import { getPostsBySection, getSectionSlugs } from "../../lib/api-contentful";
+import Layout from "../../components/layout";
+import Container from "../../components/container";
+import { getLayoutData, getPostsBySection, getSectionSlugs, getSectionTitleBy } from "../../lib/api-contentful";
+import Post from "../../components/post";
 
 const newsArchiveSlugs = ["science", "us"];
 
-export default function NewsSectionArchive({ posts }) {
-  const allPostsTitleAsElement = posts.map((item) => {
-    return <h5 key={item.date}>{item.title}</h5>;
+export default function NewsSectionArchive({ homeTitle, categories, sectionTitle, archivedPosts }) {
+
+  const archivedPostsAsElements = archivedPosts?.map((contentEntry) => {
+    return <Post post={contentEntry} key={contentEntry.sys.id} />;
   });
 
   return (
     <>
-      <p>Hello.</p>
-      <ul>{allPostsTitleAsElement ? allPostsTitleAsElement : null}</ul>
+      <Layout homeTitle={homeTitle} categories={categories}>
+        <Container>
+          <h2>{sectionTitle} News Archive</h2>
+          {archivedPostsAsElements ? archivedPostsAsElements : null}
+        </Container>
+      </Layout>
     </>
   );
 }
 
 export async function getStaticProps({ params }) {
-  const posts = await getPostsBySection(params.sectionslug);
+  const layoutData = await getLayoutData();
+  const postsDataBySection = await getPostsBySection(params.sectionslug);
+  const reversedPosts = postsDataBySection.reverse();
+  const archivedPosts = reversedPosts.splice(5);
+  const sectionTitleBySlug = await getSectionTitleBy(params.sectionslug);
   return {
-    props: { posts: posts },
+    props: {
+      homeTitle: layoutData.homeTitle,
+      categories: layoutData.categories,
+      sectionTitle: sectionTitleBySlug,
+      archivedPosts: archivedPosts,
+    },
   };
 }
 
