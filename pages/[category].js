@@ -50,6 +50,7 @@ export async function getStaticProps({ params }) {
       sections: sectionsFields ?? null,
       commitsActivity: { commitsActivityRedmagpie, commitsActivityGenomeScaleModels },
     },
+    revalidate: 1,
   };
 }
 
