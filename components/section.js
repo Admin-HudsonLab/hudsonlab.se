@@ -51,7 +51,7 @@ export default function Section({ section }) {
       <SectionContainer slug={section.fields.slug} title={section.fields.title}>
         {recentPosts}
         <br></br>
-        <Link href={`/news-archive/${section.fields.slug}`}><a className="uppercase text-lg">See older posts from {section.fields.title} News</a></Link>
+        <Link href={`/news/${section.fields.slug}/past-items`}><a className="text-2xl">See past items from {section.fields.title} News</a></Link>
       </SectionContainer>
     );
   }

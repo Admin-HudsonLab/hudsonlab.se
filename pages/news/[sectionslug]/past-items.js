@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Layout from "../../components/layout";
-import Container from "../../components/container";
-import { getLayoutData, getPostsBySection, getSectionSlugs, getSectionTitleBy } from "../../lib/api-contentful";
-import Post from "../../components/post";
+import Layout from "../../../components/layout";
+import Container from "../../../components/container";
+import { getLayoutData, getPostsBySection, getSectionSlugs, getSectionTitleBy } from "../../../lib/api-contentful";
+import Post from "../../../components/post";
 
 const newsArchiveSlugs = ["science", "us"];
 
@@ -15,7 +15,7 @@ export default function NewsSectionArchive({ homeTitle, categories, sectionTitle
     <>
       <Layout homeTitle={homeTitle} categories={categories}>
         <Container>
-          <h2>{sectionTitle} News Archive</h2>
+          <h2>{sectionTitle} News Past Items</h2>
           {archivedPostsAsElements ? archivedPostsAsElements : null}
           <br></br>
           <Link href="/news"><a className="uppercase">Back to News</a></Link>
