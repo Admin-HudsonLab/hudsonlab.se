@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Layout from "../../components/layout";
 import Container from "../../components/container";
 import { getLayoutData, getPostsBySection, getSectionSlugs, getSectionTitleBy } from "../../lib/api-contentful";
@@ -16,6 +17,8 @@ export default function NewsSectionArchive({ homeTitle, categories, sectionTitle
         <Container>
           <h2>{sectionTitle} News Archive</h2>
           {archivedPostsAsElements ? archivedPostsAsElements : null}
+          <br></br>
+          <Link href="/news"><a className="uppercase">Back to News</a></Link>
         </Container>
       </Layout>
     </>
