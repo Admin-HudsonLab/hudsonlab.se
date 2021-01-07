@@ -6,7 +6,6 @@ import Post from "../../components/post";
 const newsArchiveSlugs = ["science", "us"];
 
 export default function NewsSectionArchive({ homeTitle, categories, sectionTitle, archivedPosts }) {
-
   const archivedPostsAsElements = archivedPosts?.map((contentEntry) => {
     return <Post post={contentEntry} key={contentEntry.sys.id} />;
   });
@@ -36,6 +35,7 @@ export async function getStaticProps({ params }) {
       sectionTitle: sectionTitleBySlug,
       archivedPosts: archivedPosts,
     },
+    revalidate: 1,
   };
 }
 
