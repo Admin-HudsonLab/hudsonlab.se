@@ -3,7 +3,7 @@ import Container from "../components/container";
 import Layout from "../components/layout";
 import Section from "../components/section";
 import ToReactMarkdown from "../components/toReactMarkdown";
-import { getCategoriesSlugs, getCategoryEntriesBy, getLayoutData, getEntriesBySysId } from "../lib/api-contentful";
+import { getCategoriesSlugs, getCategoryEntriesBy, getEntriesBySysId, getHomeData } from "../lib/api-contentful";
 import { getCommitsActivityData, getMockCommitsActivityData } from "../lib/api-github";
 
 export default function Category({ homeTitle, categories, categoryTitle, introduction, sections, commitsActivity }) {
@@ -27,8 +27,12 @@ export default function Category({ homeTitle, categories, categoryTitle, introdu
 }
 
 export async function getStaticProps({ params }) {
-  // get Layout Data for header
-  const layoutData = await getLayoutData();
+  // get Home Data for header
+  const homeData = await getHomeData();
+  // get sections related to each category in homeData
+  
+  // CODE HERE
+  const categoriesWithSectionsInfo = []; 
 
   // get data for each category
   const slugFromParams = params.category;
@@ -43,8 +47,8 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      homeTitle: layoutData.homeTitle,
-      categories: layoutData.categories,
+      homeTitle: homeData.homeTitle,
+      categories: homeData.categories,
       categoryTitle: categoryFields.title,
       introduction: categoryFields.introduction ?? null,
       sections: sectionsFields ?? null,
