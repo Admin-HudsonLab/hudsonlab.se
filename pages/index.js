@@ -3,18 +3,11 @@ import Layout from "../components/layout";
 import Container from "../components/container";
 
 export default function Home({ homeTitle, categories }) {
-  
-
-  return (
-    <Layout homeTitle={homeTitle} categories={categories}>
-      <Container></Container>
-    </Layout>
-  );
+  return <Layout homeTitle={homeTitle} categories={categories}></Layout>;
 }
 
 export async function getStaticProps() {
   const layoutData = await getLayoutData();
-
   return {
     props: { homeTitle: layoutData.homeTitle, categories: layoutData.categories },
   };

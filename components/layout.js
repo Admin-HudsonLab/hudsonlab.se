@@ -14,7 +14,7 @@ export default function Layout({ children, homeTitle, categories }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div>
+
         <header className="bg-gray-100 p-4">
           <nav>
             <ul className="flex justify-between">
@@ -30,7 +30,7 @@ export default function Layout({ children, homeTitle, categories }) {
           </nav>
         </header>
         <main>{children}</main>
-      </div>
+
     </>
   );
 }
