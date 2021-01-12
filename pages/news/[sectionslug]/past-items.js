@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "../../../components/layout";
 import Container from "../../../components/container";
-import { getLayoutData, getPostsBySection, getSectionSlugs, getSectionTitleBy } from "../../../lib/api-contentful";
+import { getHomeData, getPostsBySection, getSectionSlugs, getSectionTitleBy } from "../../../lib/api-contentful";
 import Post from "../../../components/post";
 
 const newsArchiveSlugs = ["science", "us"];
@@ -26,15 +26,15 @@ export default function NewsSectionArchive({ homeTitle, categories, sectionTitle
 }
 
 export async function getStaticProps({ params }) {
-  const layoutData = await getLayoutData();
+  const homeData = await getHomeData();
   const postsDataBySection = await getPostsBySection(params.sectionslug);
   const reversedPosts = postsDataBySection.reverse();
   const archivedPosts = reversedPosts.splice(5);
   const sectionTitleBySlug = await getSectionTitleBy(params.sectionslug);
   return {
     props: {
-      homeTitle: layoutData.homeTitle,
-      categories: layoutData.categories,
+      homeTitle: homeData.homeTitle,
+      categories: homeData.categories,
       sectionTitle: sectionTitleBySlug,
       archivedPosts: archivedPosts,
     },
