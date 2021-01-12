@@ -42,8 +42,15 @@ export async function getStaticProps({ params }) {
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
   // only for '/softwares', the GitHub Commits Activity 
-  const commitsActivityRedmagpie = params.category === "softwares" ? await getMockCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
-  const commitsActivityGenomeScaleModels = params.category === "softwares" ? await getMockCommitsActivityData("m-jahn", "genome-scale-models") : null;
+  const commitsActivityRedmagpie = params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
+  const commitsActivityGenomeScaleModels = params.category === "softwares" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
+
+  // Reverse publications order if we are in the category "publications"
+  if (params.category === "publications") {
+    sectionsFields.reverse();
+  }
+
+  console.log(sectionsFields);
 
   return {
     props: {

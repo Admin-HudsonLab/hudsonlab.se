@@ -40,7 +40,6 @@ export default function Section({ section }) {
   }
 
   if (postsSection?.length > 5) {
-    
     const recentPosts = postsSection.map((post, index) => {
       if (index < 5) {
         return post;

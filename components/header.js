@@ -19,7 +19,7 @@ export default function Header({ homeTitle, categories }) {
           <li>
             <Link href="/">
               <a>
-                <h1 className="font-bold">{homeTitle}</h1>
+                <h1 className="font-bold pr-10">{homeTitle}</h1>
               </a>
             </Link>
           </li>

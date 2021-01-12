@@ -19,18 +19,7 @@ export default function Software({ software }) {
   } else {
     linkSoftwareElement = <li>[Missing Software Link]</li>;
   }
-
-  let linkPublicationElement;
-  if (software.linkPublication) {
-    linkPublicationElement = (
-      <li>
-        <Link href={software.linkPublication}>
-          <a target="_blank">{software.linkPublication}</a>
-        </Link>
-      </li>
-    );
-  }
-  /* console.log(software.logo); */
+  
   let softwareLogoElement;
   if (software.logo) {
     softwareLogoElement = (
@@ -52,7 +41,6 @@ export default function Software({ software }) {
       <p>Author: {software.author}</p>
       <ul>
         {linkSoftwareElement}
-        {linkPublicationElement}
       </ul>
       {softwareLogoElement}
     </section>

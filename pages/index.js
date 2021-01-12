@@ -29,7 +29,7 @@ export default function Home({ homeTitle, categories }) {
 
 export async function getStaticProps() {
   const homeData = await getHomeData();
-  console.log(homeData);
+  /* console.log(homeData); */
   return {
     props: { homeTitle: homeData.homeTitle, categories: homeData.categories },
   };
