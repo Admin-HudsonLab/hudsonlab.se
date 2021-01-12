@@ -44,13 +44,14 @@ export async function getStaticProps({ params }) {
   // only for '/softwares', the GitHub Commits Activity 
   const commitsActivityRedmagpie = params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
   const commitsActivityGenomeScaleModels = params.category === "softwares" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
+  const commitsActivityFUREE = params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "furee") : null;
+  const commitsActivityCBBKinetics = params.category === "softwares" ? await getCommitsActivityData("MJanasch", "CBB_Kinetics") : null;
+  const commitsActivity2019_CRISPRi_library = params.category === "softwares" ? await getCommitsActivityData("KiyanShabestary", "2019_CRISPRi_library") : null;
 
   // Reverse publications order if we are in the category "publications"
   if (params.category === "publications") {
     sectionsFields.reverse();
   }
-
-  console.log(sectionsFields);
 
   return {
     props: {
@@ -59,7 +60,7 @@ export async function getStaticProps({ params }) {
       categoryTitle: categoryFields.title,
       introduction: categoryFields.introduction ?? null,
       sections: sectionsFields ?? null,
-      commitsActivity: { commitsActivityRedmagpie, commitsActivityGenomeScaleModels },
+      commitsActivity: { commitsActivityRedmagpie, commitsActivityGenomeScaleModels, commitsActivityFUREE, commitsActivityCBBKinetics, commitsActivity2019_CRISPRi_library },
     },
     revalidate: 1,
   };

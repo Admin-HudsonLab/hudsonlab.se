@@ -1,7 +1,30 @@
 import { useEffect } from "react";
-import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale, TimeScale, Filler, Title, Legend, Tooltip } from "chart.js";
+import {
+  Chart,
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  TimeScale,
+  Filler,
+  Title,
+  Legend,
+  Tooltip,
+} from "chart.js";
 import "chartjs-adapter-date-fns";
-Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, TimeScale, Filler, Title, Legend, Tooltip);
+Chart.register(
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  TimeScale,
+  Filler,
+  Title,
+  Legend,
+  Tooltip
+);
 
 export default function CommitsChart({ commitsActivity }) {
   useEffect(() => {
@@ -17,16 +40,34 @@ export default function CommitsChart({ commitsActivity }) {
         datasets: [
           {
             label: "RedMAGPIE",
-            backgroundColor: "#B91C1C",                      
+            backgroundColor: "#B91C1C",
             pointBackgroundColor: "#F87171",
             data: commitsActivity.commitsActivityRedmagpie.allTotal,
           },
           {
             label: "genome-scale-models",
-            backgroundColor: "#1E3A8A",           
+            backgroundColor: "#1E3A8A",
             pointBackgroundColor: "#F59E0B",
             data: commitsActivity.commitsActivityGenomeScaleModels.allTotal,
-          }
+          },
+          {
+            label: "FUREE",
+            backgroundColor: "yellow",
+            pointBackgroundColor: "black",
+            data: commitsActivity.commitsActivityFUREE.allTotal,
+          },
+          {
+            label: "CBB_Kinetics",
+            backgroundColor: "pink",
+            pointBackgroundColor: "black",
+            data: commitsActivity.commitsActivityCBBKinetics.allTotal,
+          },
+          {
+            label: "2019_CRISPRi_library",
+            backgroundColor: "lime",
+            pointBackgroundColor: "black",
+            data: commitsActivity.commitsActivity2019_CRISPRi_library.allTotal,
+          },
         ],
       },
       options: {
