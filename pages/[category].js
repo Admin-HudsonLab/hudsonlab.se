@@ -3,10 +3,10 @@ import Container from "../components/container";
 import Layout from "../components/layout";
 import Section from "../components/section";
 import ToReactMarkdown from "../components/toReactMarkdown";
-import { getCategoriesSlugs, getCategoryEntriesBy, getEntriesBySysId, getHomeData } from "../lib/api-contentful";
+import { getCategoriesSlugs, getCategoryEntriesBy, getEntriesBySysId, getHomeData, getSiteMapData } from "../lib/api-contentful";
 import { getCommitsActivityData, getMockCommitsActivityData } from "../lib/api-github";
 
-export default function Category({ homeTitle, categories, categoryTitle, introduction, sections, commitsActivity }) {
+export default function Category({ homeTitle, categories, categoryTitle, siteMap, introduction, sections, commitsActivity }) {
 
   const sectionsAsElements = sections.map((section) => {
     return <Section section={section} key={section.fields.slug} />;
@@ -14,7 +14,7 @@ export default function Category({ homeTitle, categories, categoryTitle, introdu
 
   return (
     <>
-      <Layout homeTitle={homeTitle} categories={categories}>
+      <Layout homeTitle={homeTitle} categories={categories} siteMap={siteMap}>
         <Container>
           <h2>{categoryTitle}</h2>
           {introduction ? <ToReactMarkdown children={introduction} /> : null}
@@ -30,10 +30,7 @@ export async function getStaticProps({ params }) {
   // get Home Data for header
   const homeData = await getHomeData();
   // get sections related to each category in homeData
-  
-  // CODE HERE
-  const categoriesWithSectionsInfo = []; 
-
+  const siteMapData = await getSiteMapData();
   // get data for each category
   const slugFromParams = params.category;
   const categoryItem = await getCategoryEntriesBy(slugFromParams);
@@ -57,6 +54,7 @@ export async function getStaticProps({ params }) {
     props: {
       homeTitle: homeData.homeTitle,
       categories: homeData.categories,
+      siteMap: siteMapData,
       categoryTitle: categoryFields.title,
       introduction: categoryFields.introduction ?? null,
       sections: sectionsFields ?? null,

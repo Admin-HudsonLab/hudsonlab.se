@@ -1,8 +1,9 @@
-import Link from "next/link";
 import Head from "next/head";
+import { useState } from "react";
 import Header from "./header";
+import SiteMap from "./sitemap";
 
-export default function Layout({ children, homeTitle, categories, isHome }) {
+export default function Layout({ children, homeTitle, isHome, siteMap }) {
 
   const headAsElement = (
     <Head>
@@ -11,6 +12,14 @@ export default function Layout({ children, homeTitle, categories, isHome }) {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
   );
+
+  const [isSiteMapClosed, setIsSiteMapClosed] = useState(true);
+
+  function toggleSiteMap() {
+    isSiteMapClosed ? setIsSiteMapClosed(false) : setIsSiteMapClosed(true);
+  }
+
+  const siteMapAsElement = (<SiteMap siteMap={siteMap} />);
 
   if (isHome) {
     return (
@@ -26,7 +35,8 @@ export default function Layout({ children, homeTitle, categories, isHome }) {
   return (
     <>
       {headAsElement}
-      <Header homeTitle={homeTitle} categories={categories} />
+      <Header homeTitle={homeTitle} isSiteMapClosed={isSiteMapClosed} onUpdateIsSiteMapClosed={toggleSiteMap} />
+      {isSiteMapClosed ? null : siteMapAsElement}
       <main>{children}</main>
     </>
   );

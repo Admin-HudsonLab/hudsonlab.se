@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: CirrusCumulus;
+    font-weight: 400;
+    src: url(/fonts/cirruscumulus/CirrusCumulus.woff) format("woff"),
+      url(/fonts/cirruscumulus/CirrusCumulus.otf) format("otf"),
+      url(/fonts/cirruscumulus/CirrusCumulus.ttf) format("ttf");
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
+    font-weight: 300;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-Light.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-Light.woff) format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
+    font-weight: 400;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-Regular.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-Regular.woff) format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
+    font-weight: 600;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff) format("woff");
+    font-display: swap;
+  }
+  body {
+    @apply bg-beige;
+  }
+}
