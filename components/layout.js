@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
+import MainContainer from "./container";
 import Header from "./header";
 import SiteMap from "./sitemap";
 
 export default function Layout({ children, homeTitle, isHome, siteMap }) {
-
   const headAsElement = (
     <Head>
       <title>{homeTitle}</title>
@@ -19,15 +19,13 @@ export default function Layout({ children, homeTitle, isHome, siteMap }) {
     isSiteMapClosed ? setIsSiteMapClosed(false) : setIsSiteMapClosed(true);
   }
 
-  const siteMapAsElement = (<SiteMap siteMap={siteMap} />);
+  const siteMapAsElement = <SiteMap siteMap={siteMap} />;
 
   if (isHome) {
     return (
       <>
         {headAsElement}
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </>
     );
   }
@@ -36,8 +34,7 @@ export default function Layout({ children, homeTitle, isHome, siteMap }) {
     <>
       {headAsElement}
       <Header homeTitle={homeTitle} isSiteMapClosed={isSiteMapClosed} onUpdateIsSiteMapClosed={toggleSiteMap} />
-      {isSiteMapClosed ? null : siteMapAsElement}
-      <main>{children}</main>
+      {isSiteMapClosed ? <MainContainer>{children}</MainContainer> : siteMapAsElement}
     </>
   );
 }

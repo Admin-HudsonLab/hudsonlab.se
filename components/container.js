@@ -1,3 +1,3 @@
-export default function Container({ children }) {
-  return <div className="bg-gray-200 prose p-10 min-w-full">{ children }</div>
+export default function MainContainer({ children }) {
+  return <main className="relative min-h-full top-16 bg-red-200">{children}</main>
 }

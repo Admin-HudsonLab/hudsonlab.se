@@ -23,7 +23,7 @@ export default function SiteMap({ siteMap }) {
   });
 
   return (
-    <div className="px-2 font-ibm">
+    <nav className="relative top-16 min-h-full px-2 font-ibm">
       <ul className="space-y-4">{siteMapAsListElements}</ul>
       <div className="h-20 flex flex-row">
         <figure>
@@ -32,6 +32,6 @@ export default function SiteMap({ siteMap }) {
         </figure>
         <img src="/svgs/scilifelab-logo.svg" />
       </div>
-    </div>
+    </nav>
   );
 }

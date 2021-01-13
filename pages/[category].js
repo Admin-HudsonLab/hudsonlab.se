@@ -1,13 +1,25 @@
 import CommitsChart from "../components/commits-chart";
-import Container from "../components/container";
 import Layout from "../components/layout";
 import Section from "../components/section";
 import ToReactMarkdown from "../components/toReactMarkdown";
-import { getCategoriesSlugs, getCategoryEntriesBy, getEntriesBySysId, getHomeData, getSiteMapData } from "../lib/api-contentful";
+import {
+  getCategoriesSlugs,
+  getCategoryEntriesBy,
+  getEntriesBySysId,
+  getHomeData,
+  getSiteMapData,
+} from "../lib/api-contentful";
 import { getCommitsActivityData, getMockCommitsActivityData } from "../lib/api-github";
 
-export default function Category({ homeTitle, categories, categoryTitle, siteMap, introduction, sections, commitsActivity }) {
-
+export default function Category({
+  homeTitle,
+  categories,
+  categoryTitle,
+  siteMap,
+  introduction,
+  sections,
+  commitsActivity,
+}) {
   const sectionsAsElements = sections.map((section) => {
     return <Section section={section} key={section.fields.slug} />;
   });
@@ -15,12 +27,10 @@ export default function Category({ homeTitle, categories, categoryTitle, siteMap
   return (
     <>
       <Layout homeTitle={homeTitle} categories={categories} siteMap={siteMap}>
-        <Container>
-          <h2>{categoryTitle}</h2>
-          {introduction ? <ToReactMarkdown children={introduction} /> : null}
-          {categoryTitle === "Softwares" ? <CommitsChart commitsActivity={commitsActivity} /> : null}
-          {sectionsAsElements}
-        </Container>
+        <h2>{categoryTitle}</h2>
+        {introduction ? <ToReactMarkdown children={introduction} /> : null}
+        {categoryTitle === "Softwares" ? <CommitsChart commitsActivity={commitsActivity} /> : null}
+        {sectionsAsElements}
       </Layout>
     </>
   );
@@ -38,12 +48,17 @@ export async function getStaticProps({ params }) {
 
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
-  // only for '/softwares', the GitHub Commits Activity 
-  const commitsActivityRedmagpie = params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
-  const commitsActivityGenomeScaleModels = params.category === "softwares" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
-  const commitsActivityFUREE = params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "furee") : null;
-  const commitsActivityCBBKinetics = params.category === "softwares" ? await getCommitsActivityData("MJanasch", "CBB_Kinetics") : null;
-  const commitsActivity2019_CRISPRi_library = params.category === "softwares" ? await getCommitsActivityData("KiyanShabestary", "2019_CRISPRi_library") : null;
+  // only for '/softwares', the GitHub Commits Activity
+  const commitsActivityRedmagpie =
+    params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
+  const commitsActivityGenomeScaleModels =
+    params.category === "softwares" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
+  const commitsActivityFUREE =
+    params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "furee") : null;
+  const commitsActivityCBBKinetics =
+    params.category === "softwares" ? await getCommitsActivityData("MJanasch", "CBB_Kinetics") : null;
+  const commitsActivity2019_CRISPRi_library =
+    params.category === "softwares" ? await getCommitsActivityData("KiyanShabestary", "2019_CRISPRi_library") : null;
 
   // Reverse publications order if we are in the category "publications"
   if (params.category === "publications") {
@@ -58,7 +73,13 @@ export async function getStaticProps({ params }) {
       categoryTitle: categoryFields.title,
       introduction: categoryFields.introduction ?? null,
       sections: sectionsFields ?? null,
-      commitsActivity: { commitsActivityRedmagpie, commitsActivityGenomeScaleModels, commitsActivityFUREE, commitsActivityCBBKinetics, commitsActivity2019_CRISPRi_library },
+      commitsActivity: {
+        commitsActivityRedmagpie,
+        commitsActivityGenomeScaleModels,
+        commitsActivityFUREE,
+        commitsActivityCBBKinetics,
+        commitsActivity2019_CRISPRi_library,
+      },
     },
     revalidate: 1,
   };
