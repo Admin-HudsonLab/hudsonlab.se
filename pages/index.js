@@ -5,9 +5,9 @@ import Layout from "../components/layout";
 export default function Home({ homeTitle, categories }) {
   const categoriesAsElementsInHome = categories.map((category) => {
     return (
-      <div key={category.slug} className="text-center font-ibm font-semibold">
+      <div key={category.slug}>
         <Link href={`/${category.slug}`}>
-          <a>{category.title}</a>
+          <a id={`${category.slug}-hometitle`}>{category.title}</a>
         </Link>
       </div>
     );
@@ -15,13 +15,15 @@ export default function Home({ homeTitle, categories }) {
 
   return (
     <Layout homeTitle={homeTitle} isHome>
-      <div className="flex flex-col justify-center min-h-screen space-y-4">
-        <div className="text-center">
+      <div className="min-h-screen flex flex-col justify-start text-center space-y-10">
+        <div className="mt-10">
           <Link href="/">
-            <a className="font-cirrus text-9xl">{homeTitle}</a>
+            <a className="font-cirrus text-5xl">{homeTitle}</a>
           </Link>
         </div>
+        <div className="font-ibm font-light text-homeNavSmall space-y-2">
         {categoriesAsElementsInHome}
+        </div>
       </div>
     </Layout>
   );

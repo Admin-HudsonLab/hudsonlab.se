@@ -31,7 +31,63 @@
       url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff) format("woff");
     font-display: swap;
   }
-  body {
-    @apply bg-beige;
+  /* Headings */
+  #research-hometitle,
+  #research-title,
+  #research-sitemap, #research h3, #research h4 {
+    @apply text-blue-600;
   }
+  #softwares-hometitle,
+  #softwares h1,
+  #softwares-sitemap, #softwares h3, #softwares h4 {
+    @apply text-yellow-500;
+  }
+  #publications-hometitle,
+  #publications-title,
+  #publications-sitemap, #publications h3, #publications h4 {
+    @apply text-indigo-700;
+  }
+  #resources-hometitle,
+  #resources-title,
+  #resources-sitemap, #resources h3, #resources h4 {
+    @apply text-green-700;
+  }
+  #people-hometitle,
+  #people-title,
+  #people-sitemap, #people h3, #people h4 {
+    @apply text-red-600;
+  }
+  #news-hometitle,
+  #news-title,
+  #news-sitemap, #news h3, #news h4 {
+    @apply text-purple-700;
+  }
+  #funding-hometitle,
+  #funding-title,
+  #funding-sitemap, #funding h3, #funding h4 {
+    @apply text-pink-500;
+  }
+  /*   Backgrounds */
+  #research {
+    @apply bg-blue-50;
+  }
+  #softwares {
+    @apply bg-yellow-100;
+  }
+  #publications {
+    @apply bg-indigo-50;
+  }
+  #resources {
+    @apply bg-green-50;
+  }
+  #people {
+    @apply bg-red-50;
+  }
+  #news {
+    @apply bg-purple-50;
+  }
+  #funding {
+    @apply bg-pink-50;
+  }
+
 }

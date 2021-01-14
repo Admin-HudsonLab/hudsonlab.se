@@ -1,31 +1,29 @@
 import Head from "next/head";
 import { useState } from "react";
-import MainContainer from "./container";
+import MainContainer from "./main-container";
 import Header from "./header";
 import SiteMap from "./sitemap";
 
-export default function Layout({ children, homeTitle, isHome, siteMap }) {
+export default function Layout({ children, homeTitle, isHome, siteMap, categorySlug, categoryTitle }) {
   const headAsElement = (
     <Head>
-      <title>{homeTitle}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <title>{homeTitle}{categoryTitle ? `: ${categoryTitle}` : null}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
   );
-
   const [isSiteMapClosed, setIsSiteMapClosed] = useState(true);
 
   function toggleSiteMap() {
     isSiteMapClosed ? setIsSiteMapClosed(false) : setIsSiteMapClosed(true);
   }
 
-  const siteMapAsElement = <SiteMap siteMap={siteMap} />;
+  const siteMapAsElement = <SiteMap siteMap={siteMap} onUpdateIsSiteMapClosed={toggleSiteMap} />;
 
   if (isHome) {
     return (
       <>
         {headAsElement}
-        <main>{children}</main>
+        <main className="container bg-beige">{children}</main>
       </>
     );
   }
@@ -33,8 +31,13 @@ export default function Layout({ children, homeTitle, isHome, siteMap }) {
   return (
     <>
       {headAsElement}
-      <Header homeTitle={homeTitle} isSiteMapClosed={isSiteMapClosed} onUpdateIsSiteMapClosed={toggleSiteMap} />
-      {isSiteMapClosed ? <MainContainer>{children}</MainContainer> : siteMapAsElement}
+      <div className="container">
+        <Header homeTitle={homeTitle} isSiteMapClosed={isSiteMapClosed} onUpdateIsSiteMapClosed={toggleSiteMap} />
+        {isSiteMapClosed ? null : siteMapAsElement}
+        <div id="visibility-container" className={isSiteMapClosed ? null : "invisible"}>
+        <MainContainer categorySlug={categorySlug}>{children}</MainContainer>
+        </div>
+      </div>
     </>
   );
 }

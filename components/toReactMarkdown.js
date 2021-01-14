@@ -7,7 +7,7 @@ export default function ToReactMarkdown({ children, additionalClassNames }) {
     <ReactMarkdown
       plugins={[gfm]}
       children={children}
-      className={`prose${additionalClassNames ? " " + additionalClassNames : ""}`}
+      className={`prose font-sans${additionalClassNames ? " " + additionalClassNames : ""}`}
     />
   );
 }

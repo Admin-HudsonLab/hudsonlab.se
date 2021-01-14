@@ -1,23 +1,27 @@
 import Link from "next/link";
-import { useState } from "react";
 import SiteMapIcons from "./svgs/sitemap-icons";
 
 export default function Header({ homeTitle, isSiteMapClosed, onUpdateIsSiteMapClosed }) {
-
   function updateIsSiteMapClosed() {
     onUpdateIsSiteMapClosed();
   }
 
   return (
-    <header className="fixed flex flex-nowrap h-16 w-full max-w-full z-50 bg-beige px-2 pt-1">
+    <>
+    <div className="h-16 w-screen z-30 bg-transparent"></div>
+    <header className="fixed top-0 left-0 h-16 w-screen z-50 bg-beige">
+      <div className="flex justify-between px-2 pt-1">
         <Link href="/">
           <a>
             <h1 className="font-cirrus text-logoSmall">{homeTitle}</h1>
           </a>
         </Link>
-        <div onClick={updateIsSiteMapClosed} className="border border-black w-12 ml-auto cursor-pointer">
+
+        <div onClick={updateIsSiteMapClosed} className="w-12 cursor-pointer">
           <SiteMapIcons closed={isSiteMapClosed} />
         </div>
+      </div>
     </header>
+    </>
   );
 }

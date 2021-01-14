@@ -8,13 +8,13 @@ module.exports = {
       fontFamily: {
         cirrus: ["CirrusCumulus", ...defaultTheme.fontFamily.sans],
         ibm: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
-        system: [...defaultTheme.fontFamily.sans],
       },
       colors: {
         beige: "#FFF7E5",
       },
       fontSize: {
-        logoSmall: "2.5rem",
+        logoSmall: "2.25rem",
+        homeNavSmall: "1.7rem",
       },
     },
   },

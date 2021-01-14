@@ -13,8 +13,8 @@ import { getCommitsActivityData, getMockCommitsActivityData } from "../lib/api-g
 
 export default function Category({
   homeTitle,
-  categories,
   categoryTitle,
+  categorySlug,
   siteMap,
   introduction,
   sections,
@@ -26,10 +26,22 @@ export default function Category({
 
   return (
     <>
-      <Layout homeTitle={homeTitle} categories={categories} siteMap={siteMap}>
-        <h2>{categoryTitle}</h2>
-        {introduction ? <ToReactMarkdown children={introduction} /> : null}
-        {categoryTitle === "Softwares" ? <CommitsChart commitsActivity={commitsActivity} /> : null}
+      <Layout homeTitle={homeTitle} categorySlug={categorySlug} categoryTitle={categoryTitle} siteMap={siteMap}>
+        <h2 id={`${categorySlug}-title`} className="text-3xl font-ibm font-semibold mb-4">
+          {categoryTitle}
+        </h2>
+        {introduction ? (
+          <div id="introduction-container" className="mb-4">
+            <ToReactMarkdown children={introduction} />
+          </div>
+        ) : null}
+
+        {categoryTitle === "Softwares" ? (
+          <div className="hidden">
+            <CommitsChart commitsActivity={commitsActivity} />
+          </div>
+        ) : null}
+
         {sectionsAsElements}
       </Layout>
     </>
@@ -68,9 +80,10 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       homeTitle: homeData.homeTitle,
-      categories: homeData.categories,
+      /* categories: homeData.categories, */
       siteMap: siteMapData,
       categoryTitle: categoryFields.title,
+      categorySlug: categoryFields.slug,
       introduction: categoryFields.introduction ?? null,
       sections: sectionsFields ?? null,
       commitsActivity: {
