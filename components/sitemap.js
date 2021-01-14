@@ -18,7 +18,7 @@ export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
     });
 
     return (
-      <li id={`${category.categorySlug}-sitemap`} key={category.categorySlug}>
+      <li id={`${category.categorySlug}`} className="sitemap" key={category.categorySlug}>
         <Link href={`/${category.categorySlug}`}>
           <a className="text-xl" onClick={updateIsSiteMapClosed}>{category.categoryTitle}</a>
         </Link>

@@ -31,63 +31,97 @@
       url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff) format("woff");
     font-display: swap;
   }
-  /* Headings */
-  #research-hometitle,
-  #research-title,
-  #research-sitemap, #research h3, #research h4 {
-    @apply text-blue-600;
-  }
-  #softwares-hometitle,
-  #softwares h1,
-  #softwares-sitemap, #softwares h3, #softwares h4 {
-    @apply text-yellow-500;
-  }
-  #publications-hometitle,
-  #publications-title,
-  #publications-sitemap, #publications h3, #publications h4 {
-    @apply text-indigo-700;
-  }
-  #resources-hometitle,
-  #resources-title,
-  #resources-sitemap, #resources h3, #resources h4 {
-    @apply text-green-700;
-  }
-  #people-hometitle,
-  #people-title,
-  #people-sitemap, #people h3, #people h4 {
-    @apply text-red-600;
-  }
-  #news-hometitle,
-  #news-title,
-  #news-sitemap, #news h3, #news h4 {
-    @apply text-purple-700;
-  }
-  #funding-hometitle,
-  #funding-title,
-  #funding-sitemap, #funding h3, #funding h4 {
-    @apply text-pink-500;
-  }
-  /*   Backgrounds */
+  /* Headings and Backgrounds */
   #research {
     @apply bg-blue-50;
+    &-home.title,
+    &.sitemap,
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-blue-600 bg-transparent;
+    }
+    & h3.sectiontitle {
+      @apply bg-blue-100;
+    }
   }
   #softwares {
     @apply bg-yellow-100;
+    &-home.title,
+    &.sitemap,
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-yellow-500 bg-transparent;
+    }
+    & h3.sectiontitle {
+      @apply bg-yellow-100;
+    }
   }
   #publications {
     @apply bg-indigo-50;
+    &-home.title,
+    &.sitemap,
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-indigo-700 bg-transparent;
+    }
+    & h3.sectiontitle {
+      @apply bg-indigo-100;
+    }
   }
   #resources {
     @apply bg-green-50;
+    &-home.title,
+    &.sitemap,
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-green-700 bg-transparent;
+    }
+    & h3.sectiontitle {
+      @apply bg-green-100;
+    }
   }
   #people {
     @apply bg-red-50;
+    &-home.title,
+    &.sitemap,
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-red-500 bg-transparent;
+    }
+    & h3.sectiontitle {
+      @apply bg-red-100;
+    }
   }
   #news {
     @apply bg-purple-50;
+    &-home.title,
+    &.sitemap,
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-purple-700 bg-transparent;
+    }
+    & h3.sectiontitle {
+      @apply bg-purple-100;
+    }
   }
   #funding {
     @apply bg-pink-50;
+    &-home.title,
+    &.sitemap,
+    & h2,
+    & h3,
+    & h4 {
+      @apply text-pink-500 bg-transparent;
+    }
+    & h3.sectiontitle {
+      @apply bg-pink-100;
+    }
   }
 
 }

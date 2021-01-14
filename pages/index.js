@@ -7,7 +7,7 @@ export default function Home({ homeTitle, categories }) {
     return (
       <div key={category.slug}>
         <Link href={`/${category.slug}`}>
-          <a id={`${category.slug}-hometitle`}>{category.title}</a>
+          <a id={`${category.slug}-home`} className="title">{category.title}</a>
         </Link>
       </div>
     );
