@@ -41,8 +41,9 @@
   /* Headings and Backgrounds */
   #research {
     @apply bg-blue-50;
-    &-home.title,
-    &.sitemap,
+    &-home,
+    &-title,
+    &-sitemap,
     & h2,
     & h3,
     & h4 {

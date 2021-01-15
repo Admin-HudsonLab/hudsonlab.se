@@ -9,7 +9,7 @@ export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
   const siteMapAsListElements = siteMap.map((category) => {
     const sectionsAsListElements = category.categorySections.map((section) => {
       return (
-        <li key={section.sectionSlug}>
+        <li key={`${section.sectionSlug}-sitemap`}>
           <Link href={`/${category.categorySlug}#${section.sectionSlug}`} scroll={false}>
             <a className="text-base" onClick={updateIsSiteMapClosed}>{section.sectionTitle}</a>
           </Link>
@@ -18,7 +18,7 @@ export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
     });
 
     return (
-      <li id={`${category.categorySlug}`} className="sitemap" key={category.categorySlug}>
+      <li id={`${category.categorySlug}-sitemap`} key={`${category.categorySlug}-sitemap`}>
         <Link href={`/${category.categorySlug}`}>
           <a className="text-xl" onClick={updateIsSiteMapClosed}>{category.categoryTitle}</a>
         </Link>
