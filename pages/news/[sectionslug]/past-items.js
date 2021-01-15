@@ -1,24 +1,35 @@
 import Link from "next/link";
 import Layout from "../../../components/layout";
-import { getHomeData, getPostsBySection, getSectionSlugs, getSectionTitleBy } from "../../../lib/api-contentful";
+import {
+  getHomeData,
+  getPostsBySection,
+  getSectionSlugs,
+  getSectionTitleBy,
+  getSiteMapData,
+} from "../../../lib/api-contentful";
 import Post from "../../../components/post";
+import SectionContainer from "../../../components/sectionContainer";
 
 const newsArchiveSlugs = ["science", "us"];
 
-export default function NewsSectionArchive({ homeTitle, categories, sectionTitle, archivedPosts }) {
+export default function NewsSectionArchive({ homeTitle, siteMap, sectionTitle, sectionSlug, archivedPosts }) {
   const archivedPostsAsElements = archivedPosts?.map((contentEntry) => {
     return <Post post={contentEntry} key={contentEntry.sys.id} />;
   });
+  const editedTitle = `${sectionTitle} News Past Items`;
+  const editedSlug = `${sectionSlug}-news-past-items`;
 
   return (
     <>
-      <Layout homeTitle={homeTitle} categories={categories}>
-        
-          <h2>{sectionTitle} News Past Items</h2>
+      <Layout homeTitle={homeTitle} siteMap={siteMap} categoryTitle={editedTitle} categorySlug={editedSlug}>
+        <SectionContainer title={editedTitle} slug={editedSlug}>
           {archivedPostsAsElements ? archivedPostsAsElements : null}
-          <br></br>
-          <Link href="/news"><a className="uppercase">Back to News</a></Link>
-        
+          <div className="mt-4">
+            <Link href="/news">
+              <a className="section-end-link text-purple-700">Back to News</a>
+            </Link>
+          </div>
+        </SectionContainer>
       </Layout>
     </>
   );
@@ -26,6 +37,7 @@ export default function NewsSectionArchive({ homeTitle, categories, sectionTitle
 
 export async function getStaticProps({ params }) {
   const homeData = await getHomeData();
+  const siteMapData = await getSiteMapData();
   const postsDataBySection = await getPostsBySection(params.sectionslug);
   const reversedPosts = postsDataBySection.reverse();
   const archivedPosts = reversedPosts.splice(5);
@@ -33,8 +45,9 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       homeTitle: homeData.homeTitle,
-      categories: homeData.categories,
+      siteMap: siteMapData,
       sectionTitle: sectionTitleBySlug,
+      sectionSlug: params.sectionslug,
       archivedPosts: archivedPosts,
     },
     revalidate: 1,

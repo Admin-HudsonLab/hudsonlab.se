@@ -17,9 +17,9 @@ export default function Post({ post }) {
   }, []);
 
   return (
-    <article id={post.sys.id}>
-      <h4>{post.fields.title}</h4>
-      <p className="text-md font-light text-gray-500">{postDate}</p>
+    <article id={post.sys.id} className="small-section border-purple-700">
+      <h4 className="header-medium">{post.fields.title}</h4>
+      <p className="text-sm font-ibm text-gray-800 font-normal mb-2">{postDate}</p>
       <ToReactMarkdown children={post.fields.content} />
     </article>
   );
