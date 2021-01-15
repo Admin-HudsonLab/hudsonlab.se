@@ -18,10 +18,10 @@ export default function Home({ homeTitle, categories }) {
       <div className="min-h-screen flex flex-col justify-start text-center space-y-10">
         <div className="mt-10">
           <Link href="/">
-            <a className="font-cirrus text-5xl">{homeTitle}</a>
+            <a className="font-cirrus text-5xl"><h1>{homeTitle}</h1></a>
           </Link>
         </div>
-        <div className="font-ibm font-light text-homeNavSmall space-y-2">
+        <div className="font-light text-homeNavSmall space-y-2">
         {categoriesAsElementsInHome}
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function Category({
   return (
     <>
       <Layout homeTitle={homeTitle} categorySlug={categorySlug} categoryTitle={categoryTitle} siteMap={siteMap}>
-        <h2 id={`${categorySlug}`} className="text-3xl font-ibm font-semibold mb-4">
+        <h2 id={`${categorySlug}-title`} className="text-3xl font-semibold mb-4">
           {categoryTitle}
         </h2>
         {introduction ? (
@@ -36,7 +36,7 @@ export default function Category({
           </div>
         ) : null}
 
-        {categoryTitle === "Softwares" ? (
+        {categorySlug === "softwares" ? (
           <div className="hidden">
             <CommitsChart commitsActivity={commitsActivity} />
           </div>

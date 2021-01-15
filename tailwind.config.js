@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   purge: ["./pages/**/*.js", "./components/**/*.js"],
@@ -16,10 +17,24 @@ module.exports = {
         logoSmall: "2.25rem",
         homeNavSmall: "1.7rem",
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
+            a: {
+              color: theme('colors.blueGray.900', colors.blueGray[900]),
+              textDecoration: 'underline',
+              fontWeight: '500',
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      margin: ["last"],
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
