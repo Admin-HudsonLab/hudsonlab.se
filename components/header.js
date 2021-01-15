@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SiteMapIcons from "./svgs/sitemap-icons";
+import SiteMapIcons from "./svg/sitemap-icons";
 
 export default function Header({ homeTitle, isSiteMapClosed, onUpdateIsSiteMapClosed }) {
   function updateIsSiteMapClosed() {

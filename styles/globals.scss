@@ -139,4 +139,7 @@
   .header-medium {
     @apply font-semibold text-xl no-underline;
   }
+  .small-section {
+    @apply mt-8 last:mb-8 pb-4 border-b-2;
+  }
 }

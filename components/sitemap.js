@@ -33,11 +33,11 @@ export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
         <ul className="space-y-4 mb-10">{siteMapAsListElements}</ul>
         <div className="flex flex-col space-y-5">
           <div id="kth-logo container" className="h-14 w-60 flex flex-row justify-start space-x-2">
-            <img src="/svgs/kth-logo.svg" className="h-full w-auto"/>
+            <img src="/svg/kth-logo.svg" className="h-full w-auto"/>
             <div className="text-sm">School of Engineering Sciences in Biotechnology, Chemistry and Health</div>
           </div>
           <div id="scilifelab-logo container" className="h-10">
-          <img src="/svgs/scilifelab-logo.svg" className="h-full w-auto"/>
+          <img src="/svg/scilifelab-logo.svg" className="h-full w-auto"/>
           </div>
         </div>
       </nav>
