@@ -43,7 +43,7 @@
   #research {
     @apply bg-blue-50;
   }
-  #research-home,
+  #research-home-nav,
   #research-title,
   #research-sitemap,
   #research h2,
@@ -58,7 +58,7 @@
   #softwares {
     @apply bg-yellow-100;
   }
-  #softwares-home,
+  #softwares-home-nav,
   #softwares-title,
   #softwares-sitemap,
   #softwares h2,
@@ -73,7 +73,7 @@
   #publications {
     @apply bg-indigo-50;
   }
-  #publications-home,
+  #publications-home-nav,
   #publications-title,
   #publications-sitemap,
   #publications h2,
@@ -88,7 +88,7 @@
   #resources {
     @apply bg-green-50;
   }
-  #resources-home,
+  #resources-home-nav,
   #resources-title,
   #resources-sitemap,
   #resources h2,
@@ -103,7 +103,7 @@
   #people {
     @apply bg-red-50;
   }
-  #people-home,
+  #people-home-nav,
   #people-title,
   #people-sitemap,
   #people h2,
@@ -120,7 +120,7 @@
   #us-news-past-items {
     @apply bg-purple-50;
   }
-  #news-home,
+  #news-home-nav,
   #news-title,
   #news-sitemap,
   #news h2,
@@ -152,7 +152,7 @@
   #funding {
     @apply bg-pink-50;
   }
-  #funding-home,
+  #funding-home-nav,
   #funding-title,
   #funding-sitemap,
   #funding h2,

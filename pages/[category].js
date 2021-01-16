@@ -21,13 +21,18 @@ export default function Category({
   sections,
   commitsActivity,
 }) {
-  const sectionsAsElements = sections.map((section) => {
-    return <Section section={section} key={section.fields.slug} />;
-  });
+  const sectionsAsElements = sections.map((section) => <Section section={section} key={section.fields.slug} />);
 
-  const illustrationsAsElements = (
+  const illustrationAsElements = (
     <div data-name="illustrations" className="max-w-full mb-8">
-      <Image src={`/illustrations/${categorySlug}-1.jpg`} alt={`Hudson Lab illustrations for ${categoryTitle}.`} width={1200} height={1500} quality={100} className="w-full shadow" />
+      <Image
+        src={`/illustrations/${categorySlug}-1.jpg`}
+        alt={`Hudson Lab illustrations for ${categoryTitle}.`}
+        width={1200}
+        height={1500}
+        quality={100}
+        className="w-full shadow"
+      />
     </div>
   );
 
@@ -50,7 +55,7 @@ export default function Category({
         ) : null}
 
         <div className="contents">{sectionsAsElements}</div>
-        {illustrationsAsElements}
+        {illustrationAsElements}
       </Layout>
     </>
   );
@@ -65,7 +70,7 @@ export async function getStaticProps({ params }) {
   const slugFromParams = params.category;
   const categoryItem = await getCategoryEntriesBy(slugFromParams);
   const categoryFields = categoryItem.fields;
-
+  // get sections fields for this category
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
   // only for '/softwares', the GitHub Commits Activity
@@ -88,7 +93,6 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       homeTitle: homeData.homeTitle,
-      /* categories: homeData.categories, */
       siteMap: siteMapData,
       categoryTitle: categoryFields.title,
       categorySlug: categoryFields.slug,

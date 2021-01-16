@@ -6,7 +6,7 @@ import Publication from "./publication";
 import SectionContainer from "./sectionContainer";
 import Software from "./software";
 
-const specialSectionContentTypes = ["publication", "software"];
+const specialSectionsContentTypes = ["publication", "software"];
 
 export default function Section({ section }) {
   /*   console.log(`${section.fields.slug.toUpperCase()}:`, section); */
@@ -30,12 +30,12 @@ export default function Section({ section }) {
     postsSection = sectionContentAsElements.reverse();
   }
 
-  if (specialSectionContentTypes.includes(section.sys.contentType.sys.id)) {
+  if (specialSectionsContentTypes.includes(section.sys.contentType.sys.id)) {
     switch (section.sys.contentType.sys.id) {
       case "publication":
-        return <Publication publication={section.fields} key={section.sys.id} />;
+        return <Publication publication={section.fields} />;
       case "software":
-        return <Software software={section.fields} key={section.sys.id} />;
+        return <Software software={section.fields} />;
     }
   }
 
@@ -59,7 +59,7 @@ export default function Section({ section }) {
   }
 
   return (
-    <SectionContainer key={section.fields.slug} slug={section.fields.slug} title={section.fields.title}>
+    <SectionContainer slug={section.fields.slug} title={section.fields.title}>
       {sectionContentAsElements ? sectionContentAsElements : null}
     </SectionContainer>
   );

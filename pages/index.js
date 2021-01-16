@@ -5,9 +5,9 @@ import Layout from "../components/layout";
 export default function Home({ homeTitle, categories }) {
   const categoriesAsElementsInHome = categories.map((category) => {
     return (
-      <div key={`${category.slug}-home-nav`}>
+      <div key={category.slug}>
         <Link href={`/${category.slug}`}>
-          <a id={`${category.slug}-home`} className="title">{category.title}</a>
+          <a id={`${category.slug}-home-nav`}>{category.title}</a>
         </Link>
       </div>
     );

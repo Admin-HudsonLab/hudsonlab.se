@@ -7,7 +7,10 @@ import SiteMap from "./sitemap";
 export default function Layout({ children, homeTitle, isHome, siteMap, categorySlug, categoryTitle }) {
   const headAsElement = (
     <Head>
-      <title>{homeTitle}{categoryTitle ? `: ${categoryTitle}` : null}</title>
+      <title>
+        {homeTitle}
+        {categoryTitle ? `: ${categoryTitle}` : null}
+      </title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
   );
@@ -35,7 +38,7 @@ export default function Layout({ children, homeTitle, isHome, siteMap, categoryS
         <Header homeTitle={homeTitle} isSiteMapClosed={isSiteMapClosed} onUpdateIsSiteMapClosed={toggleSiteMap} />
         {isSiteMapClosed ? null : siteMapAsElement}
         <div id="visibility-container" className={isSiteMapClosed ? null : "invisible"}>
-        <MainContainer categorySlug={categorySlug}>{children}</MainContainer>
+          <MainContainer categorySlug={categorySlug}>{children}</MainContainer>
         </div>
       </div>
     </>
