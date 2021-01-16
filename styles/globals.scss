@@ -55,8 +55,9 @@
   }
   #softwares {
     @apply bg-yellow-100;
-    &-home.title,
-    &.sitemap,
+    &-home,
+    &-title,
+    &-sitemap,
     & h2,
     & h3,
     & h4 {
@@ -68,8 +69,9 @@
   }
   #publications {
     @apply bg-indigo-50;
-    &-home.title,
-    &.sitemap,
+    &-home,
+    &-title,
+    &-sitemap,
     & h2,
     & h3,
     & h4 {
@@ -81,8 +83,9 @@
   }
   #resources {
     @apply bg-green-50;
-    &-home.title,
-    &.sitemap,
+    &-home,
+    &-title,
+    &-sitemap,
     & h2,
     & h3,
     & h4 {
@@ -94,8 +97,9 @@
   }
   #people {
     @apply bg-red-50;
-    &-home.title,
-    &.sitemap,
+    &-home,
+    &-title,
+    &-sitemap,
     & h2,
     & h3,
     & h4 {
@@ -107,8 +111,9 @@
   }
   #news, #science-news-past-items, #us-news-past-items {
     @apply bg-purple-50;
-    &-home.title,
-    &.sitemap,
+    &-home,
+    &-title,
+    &-sitemap,
     & h2,
     & h3,
     & h4 {
@@ -120,8 +125,9 @@
   }
   #funding {
     @apply bg-pink-50;
-    &-home.title,
-    &.sitemap,
+    &-home,
+    &-title,
+    &-sitemap,
     & h2,
     & h3,
     & h4 {
