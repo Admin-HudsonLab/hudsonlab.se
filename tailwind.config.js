@@ -20,11 +20,11 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
+            color: theme("colors.gray.900", defaultTheme.colors.gray[900]),
             a: {
-              color: theme('colors.blueGray.900', colors.blueGray[900]),
-              textDecoration: 'underline',
-              fontWeight: '500',
+              color: theme("colors.blueGray.900", colors.blueGray[900]),
+              textDecoration: "underline",
+              fontWeight: "500",
             },
           },
         },

@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: CirrusCumulus;
+    font-weight: 400;
+    src: url(/fonts/cirruscumulus/CirrusCumulus.woff) format("woff"),
+      url(/fonts/cirruscumulus/CirrusCumulus.otf) format("otf"),
+      url(/fonts/cirruscumulus/CirrusCumulus.ttf) format("ttf");
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
+    font-weight: 300;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-Light.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-Light.woff) format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
+    font-weight: 400;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-Regular.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-Regular.woff) format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
+    font-weight: 600;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff) format("woff");
+    font-display: swap;
+  }
+  /* Link & General typography */
+  section a {
+    @apply underline;
+  }
+  strong {
+    @apply font-semibold;
+  }
+  /* Headings and Backgrounds */
+
+  #research {
+    @apply bg-blue-50;
+  }
+  #research-home,
+  #research-title,
+  #research-sitemap,
+  #research h2,
+  #research h3,
+  #research h4 {
+    @apply text-blue-600 header;
+  }
+  #research h3.sectiontitle {
+    @apply bg-blue-100;
+  }
+
+  #softwares {
+    @apply bg-yellow-100;
+  }
+  #softwares-home,
+  #softwares-title,
+  #softwares-sitemap,
+  #softwares h2,
+  #softwares h3,
+  #softwares h4 {
+    @apply text-yellow-500 header;
+  }
+  #softwares h3.sectiontitle {
+    @apply bg-yellow-100;
+  }
+
+  #publications {
+    @apply bg-indigo-50;
+  }
+  #publications-home,
+  #publications-title,
+  #publications-sitemap,
+  #publications h2,
+  #publications h3,
+  #publications h4 {
+    @apply text-indigo-700 header;
+  }
+  #publications h3.sectiontitle {
+    @apply bg-indigo-100;
+  }
+
+  #resources {
+    @apply bg-green-50;
+  }
+  #resources-home,
+  #resources-title,
+  #resources-sitemap,
+  #resources h2,
+  #resources h3,
+  #resources h4 {
+    @apply text-green-700 header;
+  }
+  #resources h3.sectiontitle {
+    @apply bg-green-100;
+  }
+
+  #people {
+    @apply bg-red-50;
+  }
+  #people-home,
+  #people-title,
+  #people-sitemap,
+  #people h2,
+  #people h3,
+  #people h4 {
+    @apply text-red-500 header;
+  }
+  #people h3.sectiontitle {
+    @apply bg-red-100;
+  }
+
+  #news,
+  #science-news-past-items,
+  #us-news-past-items {
+    @apply bg-purple-50;
+  }
+  #news-home,
+  #news-title,
+  #news-sitemap,
+  #news h2,
+  #news h3,
+  #news h4 {
+    @apply text-purple-700 header;
+  }
+  #news h3.sectiontitle {
+    @apply bg-purple-100;
+  }
+
+  #science-news-past-items h2,
+  #science-news-past-items h3,
+  #science-news-past-items h4 {
+    @apply text-purple-700 header;
+  }
+  #science-news-past-items h3.sectiontitle {
+    @apply bg-purple-100;
+  }
+  #us-news-past-items h2,
+  #us-news-past-items h3,
+  #us-news-past-items h4 {
+    @apply text-purple-700 header;
+  }
+  #us-news-past-items h3.sectiontitle {
+    @apply bg-purple-100;
+  }
+
+  #funding {
+    @apply bg-pink-50;
+  }
+  #funding-home,
+  #funding-title,
+  #funding-sitemap,
+  #funding h2,
+  #funding h3,
+  #funding h4 {
+    @apply text-pink-500 header;
+  }
+  #funding h3.sectiontitle {
+    @apply bg-pink-100;
+  }
+}
+
+@layer components {
+  .header {
+    @apply bg-transparent font-ibm no-underline;
+  }
+  .header-medium {
+    @apply font-semibold text-xl no-underline;
+  }
+  .small-section {
+    @apply mt-8 last:mb-10 pb-4 border-b-2;
+  }
+  .section-end-link {
+    @apply mt-4 mb-2 text-lg font-ibm font-semibold;
+  }
+}

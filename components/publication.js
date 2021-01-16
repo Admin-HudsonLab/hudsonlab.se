@@ -4,7 +4,6 @@ import ToReactMarkdown from "./toReactMarkdown";
 
 export default function Publication({ publication }) {
   let aboutButtonAsElement;
-
   if (publication.about) {
     aboutButtonAsElement = (
       <>

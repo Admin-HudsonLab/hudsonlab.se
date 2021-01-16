@@ -59,7 +59,7 @@ export default function Section({ section }) {
   }
 
   return (
-    <SectionContainer slug={section.fields.slug} title={section.fields.title}>
+    <SectionContainer key={section.fields.slug} slug={section.fields.slug} title={section.fields.title}>
       {sectionContentAsElements ? sectionContentAsElements : null}
     </SectionContainer>
   );

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CommitsChart from "../components/commits-chart";
 import Layout from "../components/layout";
 import Section from "../components/section";
@@ -24,6 +25,12 @@ export default function Category({
     return <Section section={section} key={section.fields.slug} />;
   });
 
+  const illustrationsAsElements = (
+    <div data-name="illustrations" className="max-w-full mb-8">
+      <Image src={`/illustrations/${categorySlug}-1.jpg`} alt={`Hudson Lab illustrations for ${categoryTitle}.`} width={1200} height={1500} quality={100} className="w-full shadow" />
+    </div>
+  );
+
   return (
     <>
       <Layout homeTitle={homeTitle} categorySlug={categorySlug} categoryTitle={categoryTitle} siteMap={siteMap}>
@@ -31,7 +38,7 @@ export default function Category({
           {categoryTitle}
         </h2>
         {introduction ? (
-          <div id="introduction-container" className="mb-4">
+          <div id={`${categorySlug}-introduction-container`} className="mb-4">
             <ToReactMarkdown children={introduction} />
           </div>
         ) : null}
@@ -42,7 +49,8 @@ export default function Category({
           </div>
         ) : null}
 
-        {sectionsAsElements}
+        <div className="contents">{sectionsAsElements}</div>
+        {illustrationsAsElements}
       </Layout>
     </>
   );

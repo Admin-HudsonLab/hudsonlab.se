@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 export default function Home({ homeTitle, categories }) {
   const categoriesAsElementsInHome = categories.map((category) => {
     return (
-      <div key={category.slug}>
+      <div key={`${category.slug}-home-nav`}>
         <Link href={`/${category.slug}`}>
           <a id={`${category.slug}-home`} className="title">{category.title}</a>
         </Link>
@@ -21,7 +21,7 @@ export default function Home({ homeTitle, categories }) {
             <a className="font-cirrus text-5xl"><h1>{homeTitle}</h1></a>
           </Link>
         </div>
-        <div className="font-light text-homeNavSmall space-y-2">
+        <div className="font-light font-ibm text-homeNavSmall space-y-2">
         {categoriesAsElementsInHome}
         </div>
       </div>
