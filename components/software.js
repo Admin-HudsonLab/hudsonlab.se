@@ -1,8 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import ToReactMarkdown from "./toReactMarkdown";
 
 export default function Software({ software }) {
+  const authorAsString = software.author;
+  const [authorOrAuthors, setAuthorOrAuthors] = useState("Author");
+
+  useEffect(() => {
+    if (authorAsString.includes(",")) {
+      setAuthorOrAuthors("Authors");
+    }
+  });
+
   let softwareLogoElement;
   if (software.logo) {
     softwareLogoElement = (
@@ -28,7 +38,7 @@ export default function Software({ software }) {
       <ToReactMarkdown children={software.description} />
       <div className="mt-2">
         <p>
-          Author: <strong>{software.author}</strong>
+          {authorOrAuthors}: <strong>{software.author}</strong>
         </p>
         <p className="mb-4">
           Repository:{" "}
