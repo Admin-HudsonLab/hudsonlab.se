@@ -32,6 +32,9 @@
     font-display: swap;
   }
   /* Link & General typography */
+  body {
+    @apply bg-beige;
+  }
   section a {
     @apply underline;
   }

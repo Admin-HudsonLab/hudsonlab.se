@@ -25,7 +25,7 @@ export default function Category({
   const sectionsAsElements = sections.map((section) => <Section section={section} key={section.fields.slug} />);
 
   const illustrationAsElements = (
-    <div data-name="illustrations" className="max-w-full mb-8">
+    <div data-name="illustrations" className="max-w-full mb-8 md:max-w-lg md:mx-auto">
       <Image
         src={`/illustrations/${categorySlug}-1.jpg`}
         alt={`Hudson Lab illustrations for ${categoryTitle}.`}

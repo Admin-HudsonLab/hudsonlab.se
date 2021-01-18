@@ -46,7 +46,7 @@ export default function Layout({ children, homeTitle, metaData, isHome, siteMap,
     return (
       <>
         {headAsElement}
-        <main className="container bg-beige">{children}</main>
+        <main className="container mx-auto">{children}</main>
       </>
     );
   }
@@ -54,7 +54,7 @@ export default function Layout({ children, homeTitle, metaData, isHome, siteMap,
   return (
     <>
       {headAsElement}
-      <div className="container bg-beige">
+      <div className="container mx-auto md:max-w-screen-sm">
         <Header homeTitle={homeTitle} isSiteMapClosed={isSiteMapClosed} onUpdateIsSiteMapClosed={toggleSiteMap} />
         {isSiteMapClosed ? null : siteMapAsElement}
         <div id="visibility-container" className={isSiteMapClosed ? null : "invisible"}>
