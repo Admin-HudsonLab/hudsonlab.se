@@ -1,26 +1,31 @@
 import Link from "next/link";
 
 export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
-
   function updateIsSiteMapClosed() {
     onUpdateIsSiteMapClosed();
   }
 
   const siteMapAsListElements = siteMap.map((category) => {
+    // Sections
     const sectionsAsListElements = category.categorySections.map((section) => {
       return (
         <li key={`${section.sectionSlug}-sitemap`}>
           <Link href={`/${category.categorySlug}#${section.sectionSlug}`} scroll={false}>
-            <a className="text-base" onClick={updateIsSiteMapClosed}>{section.sectionTitle}</a>
+            <a className="text-base" onClick={updateIsSiteMapClosed}>
+              {section.sectionTitle}
+            </a>
           </Link>
         </li>
       );
     });
 
+    // Categories
     return (
       <li id={`${category.categorySlug}-sitemap`} key={`${category.categorySlug}-sitemap`}>
         <Link href={`/${category.categorySlug}`}>
-          <a className="text-xl" onClick={updateIsSiteMapClosed}>{category.categoryTitle}</a>
+          <a className="text-xl header" onClick={updateIsSiteMapClosed}>
+            {category.categoryTitle}
+          </a>
         </Link>
         <ul className="hidden">{sectionsAsListElements}</ul>
       </li>
@@ -33,11 +38,11 @@ export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
         <ul className="space-y-4 mb-10">{siteMapAsListElements}</ul>
         <div className="flex flex-col space-y-5">
           <div id="kth-logo container" className="h-14 w-60 flex flex-row justify-start space-x-2">
-            <img src="/svg/kth-logo.svg" className="h-full w-auto"/>
+            <img src="/svg/kth-logo.svg" className="h-full w-auto" />
             <div className="text-sm">School of Engineering Sciences in Biotechnology, Chemistry and Health</div>
           </div>
           <div id="scilifelab-logo container" className="h-10">
-          <img src="/svg/scilifelab-logo.svg" className="h-full w-auto"/>
+            <img src="/svg/scilifelab-logo.svg" className="h-full w-auto" />
           </div>
         </div>
       </nav>

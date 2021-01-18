@@ -14,6 +14,7 @@ import { getCommitsActivityData, getMockCommitsActivityData } from "../lib/api-g
 
 export default function Category({
   homeTitle,
+  metaData,
   categoryTitle,
   categorySlug,
   siteMap,
@@ -38,8 +39,8 @@ export default function Category({
 
   return (
     <>
-      <Layout homeTitle={homeTitle} categorySlug={categorySlug} categoryTitle={categoryTitle} siteMap={siteMap}>
-        <h2 id={`${categorySlug}-title`} className="text-3xl font-semibold mb-4">
+      <Layout homeTitle={homeTitle} metaData={metaData} categorySlug={categorySlug} categoryTitle={categoryTitle} siteMap={siteMap}>
+        <h2 id={`${categorySlug}-title`} className="text-3xl mb-4 header-light">
           {categoryTitle}
         </h2>
         {introduction ? (
@@ -93,6 +94,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       homeTitle: homeData.homeTitle,
+      metaData: homeData.metaData,
       siteMap: siteMapData,
       categoryTitle: categoryFields.title,
       categorySlug: categoryFields.slug,

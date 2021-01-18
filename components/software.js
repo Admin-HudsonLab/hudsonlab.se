@@ -23,7 +23,7 @@ export default function Software({ software }) {
     <section id={software.slug} className="small-section border-yellow-400">
       <div className="mb-3">
         <h3 className="header-medium">{software.name}</h3>
-        {software.subtitle ? <h4 className="italic font-semibold">{software.subtitle}</h4> : null}
+        {software.subtitle ? <h4 className="italic font-semibold font-header">{software.subtitle}</h4> : null}
       </div>
       <ToReactMarkdown children={software.description} />
       <div className="mt-2">

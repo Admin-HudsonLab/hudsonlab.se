@@ -12,7 +12,7 @@ import SectionContainer from "../../../components/sectionContainer";
 
 const newsArchiveSlugs = ["science", "us"];
 
-export default function NewsSectionArchive({ homeTitle, siteMap, sectionTitle, sectionSlug, archivedPosts }) {
+export default function NewsSectionArchive({ homeTitle, metaData, siteMap, sectionTitle, sectionSlug, archivedPosts }) {
   const archivedPostsAsElements = archivedPosts?.map((contentEntry) => {
     return <Post post={contentEntry} key={contentEntry.sys.id} />;
   });
@@ -21,7 +21,7 @@ export default function NewsSectionArchive({ homeTitle, siteMap, sectionTitle, s
 
   return (
     <>
-      <Layout homeTitle={homeTitle} siteMap={siteMap} categoryTitle={editedTitle} categorySlug={editedSlug}>
+      <Layout homeTitle={homeTitle} metaData={metaData} siteMap={siteMap} categoryTitle={editedTitle} categorySlug={editedSlug}>
         <SectionContainer title={editedTitle} slug={editedSlug}>
           {archivedPostsAsElements ? archivedPostsAsElements : null}
           <div className="mt-4">
@@ -45,6 +45,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       homeTitle: homeData.homeTitle,
+      metaData: homeData.metaData,
       siteMap: siteMapData,
       sectionTitle: sectionTitleBySlug,
       sectionSlug: params.sectionslug,
