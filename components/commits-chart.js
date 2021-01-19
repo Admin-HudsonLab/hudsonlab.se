@@ -28,7 +28,9 @@ Chart.register(
 
 export default function CommitsChart({ commitsActivity }) {
   useEffect(() => {
-    Chart.defaults.elements.line.tension = 0.5;
+    Chart.defaults.elements.line.tension = 0.35;
+    Chart.defaults.plugins.tooltip.enabled = false;
+    Chart.defaults.elements.point.radius = 0;
     Chart.defaults.elements.line.showLine = false;
     Chart.defaults.elements.line.fill = "origin";
 
@@ -40,33 +42,33 @@ export default function CommitsChart({ commitsActivity }) {
         datasets: [
           {
             label: "RedMAGPIE",
-            backgroundColor: "#B91C1C",
+            backgroundColor: "#211F43",
             pointBackgroundColor: "#F87171",
             data: commitsActivity.commitsActivityRedmagpie.allTotal,
           },
           {
+            label: "2019_CRISPRi_library",
+            backgroundColor: "#F77034",
+            pointBackgroundColor: "black",
+            data: commitsActivity.commitsActivity2019_CRISPRi_library.allTotal,
+          },
+          {
             label: "genome-scale-models",
-            backgroundColor: "#1E3A8A",
-            pointBackgroundColor: "#F59E0B",
+            backgroundColor: "#2F818B",
+            pointBackgroundColor: "#BAD2DC",
             data: commitsActivity.commitsActivityGenomeScaleModels.allTotal,
           },
           {
             label: "FUREE",
-            backgroundColor: "yellow",
-            pointBackgroundColor: "black",
+            backgroundColor: "#57914B",
+            pointBackgroundColor: "#737D93",
             data: commitsActivity.commitsActivityFUREE.allTotal,
           },
           {
             label: "CBB_Kinetics",
-            backgroundColor: "pink",
+            backgroundColor: "#E0E998",
             pointBackgroundColor: "black",
             data: commitsActivity.commitsActivityCBBKinetics.allTotal,
-          },
-          {
-            label: "2019_CRISPRi_library",
-            backgroundColor: "lime",
-            pointBackgroundColor: "black",
-            data: commitsActivity.commitsActivity2019_CRISPRi_library.allTotal,
           },
         ],
       },
@@ -77,20 +79,24 @@ export default function CommitsChart({ commitsActivity }) {
             text: "Commits Activity on GitHub",
           },
         },
-        aspectRatio: 4,
+        aspectRatio: 2.85,
         scales: {
           x: {
             type: "time",
-            ticks: {
-              padding: 2,
-            },
             time: {
               displayFormats: {
-                month: "MMMM yyyy",
+                month: "MMM yyyy",
               },
               minUnit: "month",
             },
             display: true,
+          },
+          y: {
+            scaleLabel: {
+              display: true,
+              labelString: "Commits",
+              padding: 1,
+            },
           },
         },
       },
@@ -100,7 +106,7 @@ export default function CommitsChart({ commitsActivity }) {
 
   return (
     <section id="chart-container-section">
-      <div id="chart-container" className="w-3/4">
+      <div id="chart-container" className="w-screen-xl -mx-24">
         <canvas id="myChart"></canvas>
       </div>
     </section>

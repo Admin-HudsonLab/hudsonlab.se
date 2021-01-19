@@ -32,10 +32,8 @@ export default function Software({ software }) {
   return (
     <section id={software.slug} className="anchor-scroll small-section border-yellow-400">
       <div className="mb-3">
-          <h3 className="header-medium">{software.name}</h3>
-          {software.subtitle ? (
-            <h4 className="italic font-semibold font-header">{software.subtitle}</h4>
-          ) : null}
+        <h3 className="header-medium">{software.name}</h3>
+        {software.subtitle ? <h4 className="italic font-semibold font-header">{software.subtitle}</h4> : null}
       </div>
       {/* HERE ?? */}
       <ToReactMarkdown children={software.description} additionalClassNames="mb-2" />
@@ -46,9 +44,9 @@ export default function Software({ software }) {
         <p className="mb-4">
           Repository:{" "}
           <Link href={software.linkSoftware}>
-            <strong className="break-all">
-              <a target="_blank">{software.linkSoftware}</a>
-            </strong>
+            <a target="_blank">
+              <strong className="break-all">{software.linkSoftware}</strong>
+            </a>
           </Link>
         </p>
         {softwareLogoElement ? softwareLogoElement : null}

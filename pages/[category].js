@@ -51,7 +51,7 @@ export default function Category({
         {!introduction ? (<div className="md:mb-8 lg:mb-10 invisible"></div>) : null}
 
         {categorySlug === "softwares" ? (
-          <div className="hidden">
+          <div className="hidden lg:block">
             <CommitsChart commitsActivity={commitsActivity} />
           </div>
         ) : null}
