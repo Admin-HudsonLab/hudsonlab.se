@@ -7,7 +7,11 @@ export default function Publication({ publication }) {
   if (publication.about) {
     aboutButtonAsElement = (
       <>
-        <button type="button" onClick={toggleShowAbout} className="bg-indigo-600 border-indigo-900 text-gray-50 border rounded-lg shadow px-3 py-1 mb-2 font-ibm font-semibold hover:bg-indigo-800 mr-3">
+        <button
+          type="button"
+          onClick={toggleShowAbout}
+          className="bg-indigo-600 border-indigo-900 text-gray-50 border rounded-lg shadow px-3 py-1 mb-2 font-ibm font-semibold hover:bg-indigo-800 mr-3"
+        >
           About
         </button>
       </>
@@ -21,7 +25,7 @@ export default function Publication({ publication }) {
   }
 
   return (
-    <section id={publication.slug} className="small-section border-indigo-700">
+    <section id={publication.slug} className="anchor-scroll small-section border-indigo-700">
       <h3 className="mb-3 header-medium break-words">
         <Link href={publication.link}>
           <a target="_blank" className="no-underline hover:underline">
@@ -30,7 +34,7 @@ export default function Publication({ publication }) {
         </Link>
         <span className="font-normal"> ({publication.year})</span>
       </h3>
-      <div className="my-2 break-words">
+      <div className="my-2 break-words md:mb-4">
         <p>
           Authors: <strong>{publication.authors}</strong>
         </p>
@@ -39,7 +43,7 @@ export default function Publication({ publication }) {
         </p>
       </div>
       <div>
-      {aboutButtonAsElement ? aboutButtonAsElement : null}
+        {aboutButtonAsElement ? aboutButtonAsElement : null}
         <Link href={publication.link}>
           <a target="_blank">
             Full Paper
@@ -48,14 +52,14 @@ export default function Publication({ publication }) {
         </Link>
       </div>
       <div>
-      {showAbout ? (
-        <>
-          <ToReactMarkdown
-            children={publication.about}
-            additionalClassNames="bg-indigo-100 shadow p-2 rounded-lg leading-normal"
-          />
-        </>
-      ) : null}
+        {showAbout ? (
+          <>
+            <ToReactMarkdown
+              children={publication.about}
+              additionalClassNames="bg-indigo-100 shadow p-2 rounded-lg leading-normal md:py-3 md:px-4 md:w-10/12"
+            />
+          </>
+        ) : null}
       </div>
     </section>
   );

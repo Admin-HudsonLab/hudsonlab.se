@@ -13,22 +13,49 @@
   @font-face {
     font-family: IBM Plex Sans;
     font-weight: 300;
+    font-style: normal;
     src: url(/fonts/IBMPlexSans/IBMPlexSans-Light.woff2) format("woff2"),
       url(/fonts/IBMPlexSans/IBMPlexSans-Light.woff) format("woff");
     font-display: swap;
   }
   @font-face {
     font-family: IBM Plex Sans;
+    font-weight: 300;
+    font-style: italic;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-LightItalic.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-LightItalic.woff) format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
     font-weight: 400;
+    font-style: normal;
     src: url(/fonts/IBMPlexSans/IBMPlexSans-Regular.woff2) format("woff2"),
       url(/fonts/IBMPlexSans/IBMPlexSans-Regular.woff) format("woff");
     font-display: swap;
   }
   @font-face {
     font-family: IBM Plex Sans;
+    font-weight: 400;
+    font-style: italic;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-Italic.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-Italic.woff) format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
     font-weight: 600;
+    font-style: normal;
     src: url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff2) format("woff2"),
       url(/fonts/IBMPlexSans/IBMPlexSans-SemiBold.woff) format("woff");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: IBM Plex Sans;
+    font-weight: 600;
+    font-style: italic;
+    src: url(/fonts/IBMPlexSans/IBMPlexSans-SemiBoldItalic.woff2) format("woff2"),
+      url(/fonts/IBMPlexSans/IBMPlexSans-SemiBoldItalic.woff) format("woff");
     font-display: swap;
   }
   /* Link & General typography */
@@ -44,11 +71,14 @@
   h4 {
     @apply font-header;
   }
+  img + em {
+    @apply leading-snug relative -top-4 block text-center mx-auto sm:w-10/12;
+  }
 }
 
 @layer components {
   .font-header {
-    @apply font-ibm no-underline;
+    @apply font-ibm no-underline lg:text-xl;
   }
   .header {
     @apply font-normal font-header;
@@ -57,13 +87,19 @@
     @apply font-light font-header;
   }
   .header-medium {
-    @apply font-semibold font-header text-xl;
+    @apply font-semibold font-header text-xl lg:text-2xl;
   }
   .small-section {
-    @apply mt-8 last:mb-10 pb-4 border-b-2;
+    @apply mt-8 last:mb-10 pb-4 border-b-2 md:border-b-3 lg:mt-10;
   }
   .section-end-link {
-    @apply mt-4 mb-2 text-lg font-ibm font-semibold;
+    @apply mt-4 mb-2 text-lg font-ibm font-semibold lg:text-xl text-right;
+  }
+}
+
+@layer utilities {
+  .anchor-scroll {
+    scroll-margin-top: 5rem;
   }
 }
 
@@ -80,7 +116,6 @@
 #research h3.sectiontitle {
   @apply bg-blue-100;
 }
-
 #softwares-home-nav,
 #softwares-title,
 #softwares-sitemap,
@@ -92,7 +127,6 @@
 #softwares h3.sectiontitle {
   @apply bg-yellow-100;
 }
-
 #publications-home-nav,
 #publications-title,
 #publications-sitemap,
@@ -104,7 +138,6 @@
 #publications h3.sectiontitle {
   @apply bg-indigo-100;
 }
-
 #resources-home-nav,
 #resources-title,
 #resources-sitemap,
@@ -128,7 +161,6 @@
 #people h3.sectiontitle {
   @apply bg-red-100;
 }
-
 #news-home-nav,
 #news-title,
 #news-sitemap,
@@ -140,7 +172,6 @@
 #news h3.sectiontitle {
   @apply bg-purple-100;
 }
-
 #science-news-past-items h2,
 #science-news-past-items h3,
 #science-news-past-items h4 {
@@ -157,7 +188,6 @@
 #us-news-past-items h3.sectiontitle {
   @apply bg-purple-100;
 }
-
 #funding-home-nav,
 #funding-title,
 #funding-sitemap,

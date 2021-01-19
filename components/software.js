@@ -16,8 +16,8 @@ export default function Software({ software }) {
   let softwareLogoElement;
   if (software.logo) {
     softwareLogoElement = (
-      <div className="flex flex-row justify-center w-full md:justify-end">
-        <div className="w-44 md:w-52 flex justify-center md:justify-end">
+      <div className="flex flex-row justify-center w-auto md:justify-center md:mb-4 md:pt-2">
+        <div className="w-44 md:w-64 flex justify-center">
           <Image
             src={`https:${software.logo.fields.file.url}`}
             width={software.logo.fields.file.details.image.width}
@@ -30,16 +30,15 @@ export default function Software({ software }) {
   }
 
   return (
-    <section id={software.slug} className="small-section border-yellow-400">
-      <div className="mb-3 md:flex">
-        <div className="md:w-2/3">
-        <h3 className="header-medium">{software.name}</h3>
-        {software.subtitle ? <h4 className="italic font-semibold font-header md:float-left">{software.subtitle}</h4> : null}
-        </div>
-        <div className="hidden md:block md:w-1/3">{softwareLogoElement ? softwareLogoElement : null}</div>
+    <section id={software.slug} className="anchor-scroll small-section border-yellow-400">
+      <div className="mb-3">
+          <h3 className="header-medium">{software.name}</h3>
+          {software.subtitle ? (
+            <h4 className="italic font-semibold font-header">{software.subtitle}</h4>
+          ) : null}
       </div>
       {/* HERE ?? */}
-      <ToReactMarkdown children={software.description} additionalClassNames="float-left" />
+      <ToReactMarkdown children={software.description} additionalClassNames="mb-2" />
       <div className="mt-2">
         <p>
           {authorOrAuthors}: <strong>{software.author}</strong>
@@ -52,7 +51,7 @@ export default function Software({ software }) {
             </strong>
           </Link>
         </p>
-        <div className="md:hidden">{softwareLogoElement ? softwareLogoElement : null}</div>
+        {softwareLogoElement ? softwareLogoElement : null}
       </div>
     </section>
   );

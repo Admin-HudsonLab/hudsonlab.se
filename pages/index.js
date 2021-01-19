@@ -5,9 +5,9 @@ import Layout from "../components/layout";
 export default function Home({ homeTitle, metaData, categories }) {
   const categoriesAsElementsInHome = categories.map((category) => {
     return (
-      <div key={category.slug}>
+      <div key={category.slug} className="lg:w-1/4 lg:mb-10">
         <Link href={`/${category.slug}`}>
-          <a id={`${category.slug}-home-nav`}>{category.title}</a>
+          <a id={`${category.slug}-home-nav`} className="lg:hover:underline">{category.title}</a>
         </Link>
       </div>
     );
@@ -18,12 +18,12 @@ export default function Home({ homeTitle, metaData, categories }) {
       <div className="min-h-screen flex flex-col justify-start sm:justify-center text-center space-y-10">
         <div className="mt-10 sm:mt-0">
           <Link href="/">
-            <a className="font-cirrus text-5xl">
+            <a className="font-cirrus text-5xl lg:text-8xl">
               <h1>{homeTitle}</h1>
             </a>
           </Link>
         </div>
-        <div className="header-light text-homeNavSmall space-y-2">{categoriesAsElementsInHome}</div>
+        <div className="header-light text-2.5xl space-y-2 lg:space-y-0 lg:flex lg:flex-wrap lg:justify-center lg:w-screen-lg lg:mx-auto">{categoriesAsElementsInHome}</div>
       </div>
     </Layout>
   );

@@ -15,8 +15,9 @@ module.exports = {
       },
       fontSize: {
         logoSmall: "2.25rem",
-        homeNavSmall: "1.7rem",
+        "2.5xl": "1.7rem",
       },
+      borderWidth: { 3: "3px" },
       typography: (theme) => ({
         DEFAULT: {
           css: {

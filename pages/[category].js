@@ -10,7 +10,7 @@ import {
   getHomeData,
   getSiteMapData,
 } from "../lib/api-contentful";
-import { getCommitsActivityData, getMockCommitsActivityData } from "../lib/api-github";
+import { getCommitsActivityData } from "../lib/api-github";
 
 export default function Category({
   homeTitle,
@@ -40,14 +40,15 @@ export default function Category({
   return (
     <>
       <Layout homeTitle={homeTitle} metaData={metaData} categorySlug={categorySlug} categoryTitle={categoryTitle} siteMap={siteMap}>
-        <h2 id={`${categorySlug}-title`} className="text-3xl mb-4 header-light">
+        <h2 id={`${categorySlug}-title`} className="text-3xl mb-4 header-light lg:text-4xl lg:mt-6 lg:mb-5">
           {categoryTitle}
         </h2>
         {introduction ? (
-          <div id={`${categorySlug}-introduction-container`} className="mb-4">
+          <div id={`${categorySlug}-introduction-container`} className="mb-4 md:mb-6 lg:mb-8">
             <ToReactMarkdown children={introduction} />
           </div>
         ) : null}
+        {!introduction ? (<div className="md:mb-8 lg:mb-10 invisible"></div>) : null}
 
         {categorySlug === "softwares" ? (
           <div className="hidden">
