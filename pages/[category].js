@@ -27,7 +27,7 @@ export default function Category({
   const secondIllustration = (
     <Image
       src={`/illustrations/${categorySlug}-2.jpg`}
-      alt={`Hudson Lab illustrations for ${categoryTitle}.`}
+      alt="Hudson Lab"
       width={1200}
       height={1500}
       quality={100}
@@ -49,7 +49,7 @@ export default function Category({
     >
       <Image
         src={`/illustrations/${categorySlug}-1.jpg`}
-        alt={`Hudson Lab illustrations for ${categoryTitle}.`}
+        alt="Hudson Lab"
         width={1200}
         height={1500}
         quality={100}
