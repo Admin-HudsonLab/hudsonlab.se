@@ -26,7 +26,7 @@ export default function Profile({ profile }) {
         />
         <ToReactMarkdown children={profile.fields.biography} additionalClassNames={"mb-2 lg:mb-3"} />
         <Link href={`mailto:${profile.fields.email}`}>
-          <a className="font-medium no-underline break-words lg:text-lg">
+          <a className="font-medium no-underline break-words lg:text-lg hover:text-red-500">
             {profile.fields.email}
             <img src="/svg/icons/envelope-open.svg" alt="envelope open icon" className="inline pl-2" />
           </a>

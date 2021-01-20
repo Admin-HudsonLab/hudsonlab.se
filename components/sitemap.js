@@ -33,9 +33,9 @@ export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
   });
 
   return (
-    <div className="fixed w-screen bg-beige top-16 h-screen z-40 md:left-0 md:right-0 lg:top-20">
+    <div className="fixed w-screen bg-beige top-16 h-screen z-40 md:left-0 lg:top-20 xl:top-0 xl:flex xl:flex-col xl:justify-center">
       <nav className="py-2 px-4 font-ibm md:flex md:flex-wrap md:justify-center lg:flex-col lg:content-center">
-        <ul className="space-y-4 mb-10 md:w-full md:mt-8 md:text-center lg:mb-5 lg:flex lg:flex-wrap lg:mx-auto lg:justify-center lg:space-y-0 lg:max-w-4xl">{siteMapAsListElements}</ul>
+        <ul className="space-y-4 mb-10 md:w-full md:mt-8 md:text-center lg:mb-5 lg:flex lg:flex-wrap lg:mx-auto lg:justify-center lg:space-y-0 lg:max-w-4xl xl:mt-0">{siteMapAsListElements}</ul>
         <div className="flex flex-col space-y-5 md:w-auto md:self-center md:space-y-8 md:mt-3 lg:mt-0 lg:flex-row lg:w-full lg:justify-center lg:space-y-0 lg:pt-5">
           <Link href="https://www.kth.se/">
             <a target="_blank" className="block lg:order-2 md:w-60 lg:w-72 md:flex md:justify-center lg:-mr-3">

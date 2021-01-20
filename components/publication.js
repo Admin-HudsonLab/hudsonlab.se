@@ -45,7 +45,7 @@ export default function Publication({ publication }) {
       <div>
         {aboutButtonAsElement ? aboutButtonAsElement : null}
         <Link href={publication.link}>
-          <a target="_blank">
+          <a target="_blank" className="hover:text-indigo-700">
             Full Paper
             <img src="/svg/icons/external-link.svg" alt="external link icon" className="inline pl-1" />
           </a>
