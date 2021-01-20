@@ -7,7 +7,9 @@ export default function Home({ homeTitle, metaData, categories }) {
     return (
       <div key={category.slug} className="lg:w-1/4 lg:mb-10">
         <Link href={`/${category.slug}`}>
-          <a id={`${category.slug}-home-nav`} className="lg:hover:underline">{category.title}</a>
+          <a id={`${category.slug}-home-nav`} className="lg:hover:underline">
+            {category.title}
+          </a>
         </Link>
       </div>
     );
@@ -17,13 +19,11 @@ export default function Home({ homeTitle, metaData, categories }) {
     <Layout homeTitle={homeTitle} metaData={metaData} isHome>
       <div className="min-h-screen flex flex-col justify-start sm:justify-center text-center space-y-10">
         <div className="mt-10 sm:mt-0">
-          <Link href="/">
-            <a className="font-cirrus text-5xl lg:text-8xl">
-              <h1>{homeTitle}</h1>
-            </a>
-          </Link>
+          <h1 className="font-cirrus text-5xl lg:text-8xl">{homeTitle}</h1>
         </div>
-        <div className="header-light text-2.5xl space-y-2 lg:space-y-0 lg:flex lg:flex-wrap lg:justify-center lg:w-screen-lg lg:mx-auto">{categoriesAsElementsInHome}</div>
+        <div className="header-light text-2.5xl space-y-2 lg:space-y-0 lg:flex lg:flex-wrap lg:justify-center lg:w-screen-lg lg:mx-auto">
+          {categoriesAsElementsInHome}
+        </div>
       </div>
     </Layout>
   );
