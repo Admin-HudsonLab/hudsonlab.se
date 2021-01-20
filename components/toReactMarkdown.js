@@ -27,7 +27,7 @@ export default function ToReactMarkdown({ children, additionalClassNames }) {
     <ReactMarkdown
       plugins={[gfm]}
       children={children}
-      className={`prose lg:prose-lg font-sans${additionalClassNames ? " " + additionalClassNames : ""}`}
+      className={`prose lg:prose-lg 2xl:prose-xl font-sans${additionalClassNames ? " " + additionalClassNames : ""}`}
       renderers={{ image: RMImage }}
       linkTarget={handleLinkTargets}
     />

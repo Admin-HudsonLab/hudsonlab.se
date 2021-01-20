@@ -36,8 +36,8 @@ export default function Software({ software }) {
         {software.subtitle ? <h4 className="italic font-semibold font-header">{software.subtitle}</h4> : null}
       </div>
       {/* HERE ?? */}
-      <ToReactMarkdown children={software.description} additionalClassNames="mb-2" />
-      <div className="mt-2">
+      <ToReactMarkdown children={software.description} additionalClassNames="mb-2 2xl:mb-4" />
+      <div className="mt-2 2xl:text-lg">
         <p>
           {authorOrAuthors}: <strong>{software.author}</strong>
         </p>

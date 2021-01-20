@@ -90,7 +90,7 @@
     @apply font-semibold font-header text-xl lg:text-2xl;
   }
   .small-section {
-    @apply mt-8 last:mb-10 pb-4 border-b-2 md:border-b-3 lg:mt-10;
+    @apply mt-8 last:mb-10 pb-4 border-b-2 md:border-b-3 lg:mt-10 2xl:max-w-prose 2xl:w-full 2xl:mb-2 2xl:pb-3;
   }
   .section-end-link {
     @apply mt-4 mb-2 text-lg font-ibm font-semibold lg:text-xl text-right;
@@ -100,6 +100,11 @@
 @layer utilities {
   .anchor-scroll {
     scroll-margin-top: 5rem;
+  }
+  @screen 2xl {
+    .anchor-scroll {
+      scroll-margin-top: 6.5rem;
+    }
   }
 }
 

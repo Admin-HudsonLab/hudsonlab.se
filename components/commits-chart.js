@@ -106,7 +106,7 @@ export default function CommitsChart({ commitsActivity }) {
 
   return (
     <section id="chart-container-section">
-      <div id="chart-container" className="w-screen-xl -mx-24">
+      <div id="chart-container" className="w-screen-xl -mx-24 2xl:-mx-0 2xl:px-1 2xl:-mt-2">
         <canvas id="myChart"></canvas>
       </div>
     </section>

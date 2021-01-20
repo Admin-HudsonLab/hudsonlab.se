@@ -10,7 +10,7 @@ export default function Publication({ publication }) {
         <button
           type="button"
           onClick={toggleShowAbout}
-          className="bg-indigo-600 border-indigo-900 text-gray-50 border rounded-lg shadow px-3 py-1 mb-2 font-ibm font-semibold hover:bg-indigo-800 mr-3"
+          className="bg-indigo-600 border-indigo-900 text-gray-50 border 2xl:border-2 2xl:border-indigo-400 rounded-lg shadow px-3 py-1 mb-2 font-ibm font-semibold hover:bg-indigo-800 mr-3"
         >
           About
         </button>
@@ -25,8 +25,8 @@ export default function Publication({ publication }) {
   }
 
   return (
-    <section id={publication.slug} className="anchor-scroll small-section border-indigo-700">
-      <h3 className="mb-3 header-medium break-words">
+    <section id={publication.slug} className="anchor-scroll small-section 2xl:first:mt-0 border-indigo-700">
+      <h3 className="mb-3 header-medium 2xl:font-normal break-words">
         <Link href={publication.link}>
           <a target="_blank" className="no-underline hover:underline">
             {publication.title}
@@ -34,7 +34,7 @@ export default function Publication({ publication }) {
         </Link>
         <span className="font-normal"> ({publication.year})</span>
       </h3>
-      <div className="my-2 break-words md:mb-4">
+      <div className="my-2 break-words md:mb-4 2xl:text-lg">
         <p>
           Authors: <strong>{publication.authors}</strong>
         </p>
@@ -56,7 +56,7 @@ export default function Publication({ publication }) {
           <>
             <ToReactMarkdown
               children={publication.about}
-              additionalClassNames="bg-indigo-100 shadow p-2 rounded-lg leading-normal md:py-3 md:px-4 md:w-10/12"
+              additionalClassNames="bg-indigo-100 shadow p-2 rounded-lg leading-normal md:py-3 md:px-4 md:w-10/12 lg:leading-normal xl:leading-normal 2xl:leading-normal 2xl:text-base"
             />
           </>
         ) : null}

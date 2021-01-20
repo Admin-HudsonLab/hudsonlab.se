@@ -17,12 +17,12 @@ export default function Profile({ profile }) {
             className="w-full"
           />
         </div>
-        <h4 className="w-full header-medium text-center my-2">{profile.fields.name}</h4>
+        <h4 className="w-full header-medium text-center my-2 2xl:mb-3">{profile.fields.name}</h4>
       </div>
       <div>
         <ToReactMarkdown
           children={profile.fields.education}
-          additionalClassNames={"mb-2 text-gray-800 text-sm font-ibm font-semibold tracking-normal leading-snug lg:mt-1 lg:tracking-tight"}
+          additionalClassNames={"mb-2 text-gray-800 text-sm font-ibm font-semibold tracking-normal leading-snug lg:mt-1 lg:tracking-tight lg:leading-snug xl:leading-normal 2xl:leading-normal lg:text-base 2xl:text-base 2xl:mb-4"}
         />
         <ToReactMarkdown children={profile.fields.biography} additionalClassNames={"mb-2 lg:mb-3"} />
         <Link href={`mailto:${profile.fields.email}`}>

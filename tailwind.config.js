@@ -34,7 +34,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      margin: ["last"],
+      margin: ["last", "first"],
+      padding: ["first"],
     },
   },
   plugins: [require("@tailwindcss/typography")],
