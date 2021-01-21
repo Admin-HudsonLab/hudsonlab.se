@@ -9,7 +9,7 @@ export function handleLinkTargets(url) {
   if (
     url.startsWith("./") ||
     url.startsWith("/research") ||
-    url.startsWith("/softwares") ||
+    url.startsWith("/software") ||
     url.startsWith("/resources") ||
     url.startsWith("/publications") ||
     url.startsWith("/people") ||

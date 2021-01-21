@@ -121,15 +121,15 @@
 #research h3.sectiontitle {
   @apply bg-blue-100;
 }
-#softwares-home-nav,
-#softwares-title,
-#softwares-sitemap,
-#softwares h2,
-#softwares h3,
-#softwares h4 {
+#software-home-nav,
+#software-title,
+#software-sitemap,
+#software h2,
+#software h3,
+#software h4 {
   @apply text-yellow-500;
 }
-#softwares h3.sectiontitle {
+#software h3.sectiontitle {
   @apply bg-yellow-100;
 }
 #publications-home-nav,

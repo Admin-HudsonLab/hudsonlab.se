@@ -87,7 +87,7 @@ export default function Category({
         </div>
         <div className="contents 2xl:block 2xl:w-3/6 2xl:flex-grow-0 2xl:pt-6">
           <div className="2xl:flex 2xl:justify-center 2xl:flex-wrap">
-            {categorySlug === "softwares" ? (
+            {categorySlug === "software" ? (
               <div className="hidden lg:block 2xl:w-full">
                 <CommitsChart commitsActivity={commitsActivity} />
               </div>
@@ -113,17 +113,17 @@ export async function getStaticProps({ params }) {
   // get sections fields for this category
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
-  // only for '/softwares', the GitHub Commits Activity
+  // only for '/', the GitHub Commits Activity
   const commitsActivityRedmagpie =
-    params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
+    params.category === "software" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
   const commitsActivityGenomeScaleModels =
-    params.category === "softwares" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
+    params.category === "software" ? await getCommitsActivityData("m-jahn", "genome-scale-models") : null;
   const commitsActivityFUREE =
-    params.category === "softwares" ? await getCommitsActivityData("Asplund-Samuelsson", "furee") : null;
+    params.category === "software" ? await getCommitsActivityData("Asplund-Samuelsson", "furee") : null;
   const commitsActivityCBBKinetics =
-    params.category === "softwares" ? await getCommitsActivityData("MJanasch", "CBB_Kinetics") : null;
+    params.category === "software" ? await getCommitsActivityData("MJanasch", "CBB_Kinetics") : null;
   const commitsActivity2019_CRISPRi_library =
-    params.category === "softwares" ? await getCommitsActivityData("KiyanShabestary", "2019_CRISPRi_library") : null;
+    params.category === "software" ? await getCommitsActivityData("KiyanShabestary", "2019_CRISPRi_library") : null;
 
   // Reverse publications order if we are in the category "publications"
   if (params.category === "publications") {
