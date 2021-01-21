@@ -43,31 +43,26 @@ export default function CommitsChart({ commitsActivity }) {
           {
             label: "RedMAGPIE",
             backgroundColor: "#211F43",
-            pointBackgroundColor: "#F87171",
             data: commitsActivity.commitsActivityRedmagpie.allTotal,
           },
           {
             label: "2019_CRISPRi_library",
             backgroundColor: "#F77034",
-            pointBackgroundColor: "black",
             data: commitsActivity.commitsActivity2019_CRISPRi_library.allTotal,
           },
           {
             label: "genome-scale-models",
             backgroundColor: "#2F818B",
-            pointBackgroundColor: "#BAD2DC",
             data: commitsActivity.commitsActivityGenomeScaleModels.allTotal,
           },
           {
             label: "FUREE",
             backgroundColor: "#57914B",
-            pointBackgroundColor: "#737D93",
             data: commitsActivity.commitsActivityFUREE.allTotal,
           },
           {
             label: "CBB_Kinetics",
             backgroundColor: "#E0E998",
-            pointBackgroundColor: "black",
             data: commitsActivity.commitsActivityCBBKinetics.allTotal,
           },
         ],

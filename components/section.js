@@ -9,7 +9,6 @@ import Software from "./software";
 const specialSectionsContentTypes = ["publication", "software"];
 
 export default function Section({ section }) {
-  /*   console.log(`${section.fields.slug.toUpperCase()}:`, section); */
 
   const sectionContentAsElements = section.fields.content?.map((contentEntry) => {
     switch (contentEntry.sys.contentType.sys.id) {

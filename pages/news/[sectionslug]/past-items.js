@@ -21,7 +21,13 @@ export default function NewsSectionArchive({ homeTitle, metaData, siteMap, secti
 
   return (
     <>
-      <Layout homeTitle={homeTitle} metaData={metaData} siteMap={siteMap} categoryTitle={editedTitle} categorySlug={editedSlug}>
+      <Layout
+        homeTitle={homeTitle}
+        metaData={metaData}
+        siteMap={siteMap}
+        categoryTitle={editedTitle}
+        categorySlug={editedSlug}
+      >
         <SectionContainer title={editedTitle} slug={editedSlug}>
           {archivedPostsAsElements ? archivedPostsAsElements : null}
           <div className="mt-4">

@@ -41,7 +41,6 @@ export default function SiteMap({ siteMap, onUpdateIsSiteMapClosed }) {
             <a target="_blank" className="block lg:order-2 md:w-60 lg:w-72 md:flex md:justify-center lg:-mr-3">
               <div id="kth-logo container" className="h-14 w-60 flex flex-row justify-start lg:justify-center space-x-2">
                 <img src="/svg/kth-logo.svg" className="h-full w-auto" />
-
                 <div className="text-sm lg:hover:underline">School of Engineering Sciences in Biotechnology, Chemistry and Health</div>
               </div>
             </a>

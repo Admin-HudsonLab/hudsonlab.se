@@ -3,17 +3,11 @@ import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 
 export function RMImage(props) {
+  // Handle SVG to resize them properly (See page /research).
   const srcString = props.src.toLowerCase();
   if (srcString.endsWith(".svg")) {
-    return (
-      <img
-        src={`https://${props.src}`}
-        alt={props.alt}
-        className="object-contain h-80 sm:h-96 mx-auto"
-      />
-    );
+    return <img src={`https://${props.src}`} alt={props.alt} className="object-contain h-80 sm:h-96 mx-auto" />;
   }
-
   return (
     <img
       src={`https://${props.src}`}
@@ -24,6 +18,7 @@ export function RMImage(props) {
 }
 
 export function handleLinkTargets(url) {
+  // Handle internal vs external links
   if (
     url.startsWith("./") ||
     url.startsWith("/research") ||

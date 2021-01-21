@@ -67,7 +67,7 @@ export default function Category({
         categoryTitle={categoryTitle}
         siteMap={siteMap}
       >
-        {/*         Left column */}
+        {/* Left column in 2XL screens */}
         <div className="2xl:w-4/12 2xl:p-6">
           <h2
             id={`${categorySlug}-title`}
@@ -85,7 +85,7 @@ export default function Category({
           ) : null}
           {!introduction ? <div className="md:mb-8 lg:mb-10 invisible"></div> : null}
         </div>
-        {/* Central column */}
+        {/* Central column in 2XL screens */}
         <div className="contents 2xl:block 2xl:w-6/12 2xl:pt-6">
           <div className="2xl:flex 2xl:justify-center 2xl:flex-wrap">
             {categorySlug === "software" ? (
@@ -96,7 +96,7 @@ export default function Category({
             {sectionsAsElements}
           </div>
         </div>
-        {/* Third column */}
+        {/* Third column in 2XL screens */}
         <div
           data-name="illustrations"
           className="max-w-full mb-8 md:max-w-lg 2xl:max-w-full md:mx-auto 2xl:w-4/12 2xl:p-6 2xl:mb-0 2xl:flex 2xl:flex-col 2xl:justify-between 2xl:pb-9"
@@ -120,7 +120,7 @@ export async function getStaticProps({ params }) {
   // get sections fields for this category
   const sectionsFields = await getEntriesBySysId(categoryFields.sections);
 
-  // only for '/', the GitHub Commits Activity
+  // only for '/', the GitHub Commits Graphs Activity
   const commitsActivityRedmagpie =
     params.category === "software" ? await getCommitsActivityData("Asplund-Samuelsson", "redmagpie") : null;
   const commitsActivityGenomeScaleModels =
