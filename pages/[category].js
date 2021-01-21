@@ -43,10 +43,7 @@ export default function Category({
   }
 
   const illustrationAsElements = (
-    <div
-      data-name="illustrations"
-      className="max-w-full mb-8 md:max-w-lg md:mx-auto 2xl:w-4/12 2xl:flex-shrink 2xl:p-6 2xl:mb-0 2xl:flex 2xl:flex-col 2xl:justify-between"
-    >
+    <>
       <Image
         src={`/illustrations/${categorySlug}-1.jpg`}
         alt="Hudson Lab"
@@ -55,8 +52,10 @@ export default function Category({
         quality={100}
         className="w-full shadow"
       />
-      {isThereASecondIllustrationFor(categorySlug) ? <div className="hidden 2xl:block">{secondIllustration}</div> : null}
-    </div>
+      {isThereASecondIllustrationFor(categorySlug) ? (
+        <div className="hidden 2xl:block">{secondIllustration}</div>
+      ) : null}
+    </>
   );
 
   return (
@@ -68,7 +67,8 @@ export default function Category({
         categoryTitle={categoryTitle}
         siteMap={siteMap}
       >
-        <div className="2xl:w-4/12 2xl:flex-shrink 2xl:p-6">
+        {/*         Left column */}
+        <div className="2xl:w-4/12 2xl:p-6">
           <h2
             id={`${categorySlug}-title`}
             className="text-3xl mb-4 header-light lg:text-4xl lg:mt-6 lg:mb-5 2xl:mt-0 2xl:text-5xl 2xl:-ml-0.5"
@@ -79,13 +79,14 @@ export default function Category({
             <div id={`${categorySlug}-introduction-container`} className="mb-4 md:mb-6 lg:mb-8">
               <ToReactMarkdown
                 children={introduction}
-                additionalClassNames="2xl:leading-normal 2xl:text-lg 2xl:text-gray-800"
+                additionalClassNames="xl:font-semibold 2xl:text-lg 2xl:text-gray-800 2xl:w-11/12 2xl:max-w-lg"
               />
             </div>
           ) : null}
           {!introduction ? <div className="md:mb-8 lg:mb-10 invisible"></div> : null}
         </div>
-        <div className="contents 2xl:block 2xl:w-3/6 2xl:flex-grow-0 2xl:pt-6">
+        {/* Central column */}
+        <div className="contents 2xl:block 2xl:w-6/12 2xl:pt-6">
           <div className="2xl:flex 2xl:justify-center 2xl:flex-wrap">
             {categorySlug === "software" ? (
               <div className="hidden lg:block 2xl:w-full">
@@ -95,7 +96,13 @@ export default function Category({
             {sectionsAsElements}
           </div>
         </div>
-        {illustrationAsElements}
+        {/* Third column */}
+        <div
+          data-name="illustrations"
+          className="max-w-full mb-8 md:max-w-lg 2xl:max-w-full md:mx-auto 2xl:w-4/12 2xl:p-6 2xl:mb-0 2xl:flex 2xl:flex-col 2xl:justify-between 2xl:pb-9"
+        >
+          {illustrationAsElements}
+        </div>
       </Layout>
     </>
   );
