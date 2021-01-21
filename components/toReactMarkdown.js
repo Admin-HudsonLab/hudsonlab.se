@@ -1,8 +1,26 @@
+import src from "@tailwindcss/typography";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
 
 export function RMImage(props) {
-  return <img src={`https://${props.src}`} alt={props.alt} className="object-contain h-80 md:h-96 w-full mx-auto" />;
+  const srcString = props.src.toLowerCase();
+  if (srcString.endsWith(".svg")) {
+    return (
+      <img
+        src={`https://${props.src}`}
+        alt={props.alt}
+        className="object-contain h-80 sm:h-96 mx-auto"
+      />
+    );
+  }
+
+  return (
+    <img
+      src={`https://${props.src}`}
+      alt={props.alt}
+      className="object-scale-down min-h-min w-full max-h-96 sm:w-11/12 mx-auto"
+    />
+  );
 }
 
 export function handleLinkTargets(url) {
