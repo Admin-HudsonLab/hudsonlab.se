@@ -79,7 +79,7 @@ export default function Category({
             <div id={`${categorySlug}-introduction-container`} className="mb-4 md:mb-6 lg:mb-8">
               <ToReactMarkdown
                 children={introduction}
-                additionalClassNames="xl:font-semibold 2xl:text-lg 2xl:text-gray-800 2xl:w-11/12 2xl:max-w-lg"
+                additionalClassNames="font-semibold text-gray-800 2xl:text-gray-900 2xl:font-normal 2xl:leading-normal 2xl:w-11/12 2xl:max-w-lg"
               />
             </div>
           ) : null}

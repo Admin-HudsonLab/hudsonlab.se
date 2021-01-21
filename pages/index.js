@@ -18,7 +18,7 @@ export default function Home({ homeTitle, metaData, categories }) {
   return (
     <Layout homeTitle={homeTitle} metaData={metaData} isHome>
       <div className="min-h-screen flex flex-col justify-start sm:justify-center text-center space-y-10">
-        <div className="mt-10 sm:mt-0">
+        <div className="mt-10 sm:mt-0 lg:-mt-16">
           <h1 className="font-cirrus text-5xl lg:text-8xl">{homeTitle}</h1>
         </div>
         <div className="header-light text-2.5xl space-y-2 lg:space-y-0 lg:flex lg:flex-wrap lg:justify-center lg:w-screen-lg lg:mx-auto">
