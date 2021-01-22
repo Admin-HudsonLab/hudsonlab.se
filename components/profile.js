@@ -10,7 +10,7 @@ export default function Profile({ profile }) {
         <div className="w-2/3 flex justify-center">
           <Image
             src={`https:${profile.fields.portrait.fields.file.url}`}
-            alt={profile.fields.portrait.fields.description}
+            alt={profile.fields.portrait.fields.description ? profile.fields.portrait.fields.description : `Portrait of ${profile.fields.name}`}
             width={225}
             height={225}
             quality={100}

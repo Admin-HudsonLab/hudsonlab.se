@@ -15,11 +15,13 @@ export default function Software({ software }) {
 
   let softwareLogoElement;
   if (software.logo) {
+    const alternativeText = software.logo.fields.description ? software.logo.fields.description : software.logo.fields.title; 
     softwareLogoElement = (
       <div className="flex flex-row justify-center w-auto md:justify-center md:mb-4 md:pt-2">
         <div className="w-44 md:w-64 flex justify-center">
           <Image
             src={`https:${software.logo.fields.file.url}`}
+            alt={alternativeText ? alternativeText : null}
             width={software.logo.fields.file.details.image.width}
             height={software.logo.fields.file.details.image.height}
             className="w-full max-h-full"
